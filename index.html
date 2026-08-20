@@ -923,13 +923,25 @@
         <a href="#compliance" class="nav-link nav-btn hover:text-brand-turquoise">A2P Approvals</a>
       </nav>
 
-      <!-- Action Buttons -->
+      <!-- Action Buttons (Order: Download CV -> Let's Talk -> Dark Toggle -> Mobile Hamburger) -->
       <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-        <!-- Theme Toggle Button -->
+        <!-- 1. Download CV Button (Placed beside navigation) -->
+        <button onclick="openCvModal()" class="hidden sm:inline-flex px-3 sm:px-4 xl:px-5 py-2 sm:py-2.5 btn-brand-primary text-[10.5px] sm:text-xs uppercase tracking-wider items-center gap-1.5 whitespace-nowrap cursor-pointer transition-transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,232,145,0.3)]">
+          <i class="fa-solid fa-file-arrow-down text-xs"></i>
+          <span>Download CV</span>
+        </button>
+
+        <!-- 2. Let's Talk Button -->
+        <a href="#contact" class="nav-link px-3 sm:px-4 xl:px-5 py-2 sm:py-2.5 btn-brand-outline text-[10.5px] sm:text-xs uppercase tracking-wider items-center gap-1.5 whitespace-nowrap cursor-pointer transition-transform hover:scale-105 active:scale-95">
+          <span>Let's Talk</span>
+          <i class="fa-solid fa-paper-plane text-brand-turquoise text-xs"></i>
+        </a>
+
+        <!-- 3. Dark Theme Toggle Switcher (FARTHEST RIGHT of the desktop buttons) -->
         <button 
           id="themeToggleBtn" 
           onclick="toggleTheme()" 
-          class="theme-toggle-btn px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full border border-brand-border/80 bg-brand-surface/80 hover:border-brand-turquoise/60 text-slate-300 hover:text-white transition-all text-xs font-mono group cursor-pointer shadow-sm focus:outline-none" 
+          class="theme-toggle-btn px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full border border-brand-border/80 bg-brand-surface/80 hover:border-brand-turquoise/60 text-slate-300 hover:text-white transition-all text-xs font-mono group cursor-pointer shadow-sm focus:outline-none flex items-center gap-1.5" 
           title="Toggle Deep Pitch-Dark and Slate theme"
           aria-label="Toggle Theme"
         >
@@ -939,17 +951,8 @@
           <span id="themeLabel" class="hidden md:inline text-[11px] font-bold tracking-wider uppercase text-slate-300 group-hover:text-white">Dark</span>
         </button>
 
-        <button onclick="openCvModal()" class="hidden sm:inline-flex px-3.5 sm:px-4 xl:px-5 py-2 sm:py-2.5 btn-brand-primary text-[11px] sm:text-xs uppercase tracking-wider gap-1.5 whitespace-nowrap">
-          <i class="fa-solid fa-file-arrow-down text-xs"></i>
-          <span>Download CV</span>
-        </button>
-
-        <a href="#contact" class="nav-link px-3.5 sm:px-4 xl:px-5 py-2 sm:py-2.5 btn-brand-outline text-[11px] sm:text-xs uppercase tracking-wider gap-1.5 whitespace-nowrap">
-          <span>Let's Talk</span>
-          <i class="fa-solid fa-paper-plane text-brand-turquoise text-xs"></i>
-        </a>
-
-        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-300 hover:text-brand-turquoise focus:outline-none" aria-label="Toggle Mobile Menu">
+        <!-- 4. Mobile Menu Toggle Button (Mobile / Tablet only) -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-300 hover:text-brand-turquoise focus:outline-none cursor-pointer flex items-center justify-center" aria-label="Toggle Mobile Menu">
           <i class="fa-solid fa-bars text-xl"></i>
         </button>
       </div>
