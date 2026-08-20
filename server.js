@@ -199,35 +199,33 @@ wss.on('connection', async (clientWs) => {
           voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Puck' } },
         },
         systemInstruction: JEHV_SYSTEM_INSTRUCTION,
-        outputAudioTranscription: {},
-        inputAudioTranscription: {},
       },
       callbacks: {
         onmessage: (message) => {
           try {
             // Check for audio output chunks
             const audioData = message.serverContent?.modelTurn?.parts?.[0]?.inlineData?.data;
-            if (audioData && clientWs.readyState === clientWs.OPEN) {
+            if (audioData && clientWs.readyState === WebSocket.OPEN) {
               clientWs.send(JSON.stringify({ audio: audioData }));
             }
 
             // Check for output audio transcription (AI speech transcript)
             const outputTranscript = message.serverContent?.outputAudioTranscription?.text;
-            if (outputTranscript && clientWs.readyState === clientWs.OPEN) {
+            if (outputTranscript && clientWs.readyState === WebSocket.OPEN) {
               clientWs.send(JSON.stringify({ transcript: { role: 'assistant', text: outputTranscript } }));
             }
 
             // Check for input audio transcription (User speech transcript)
             const inputTranscript = message.serverContent?.inputAudioTranscription?.text;
-            if (inputTranscript && clientWs.readyState === clientWs.OPEN) {
+            if (inputTranscript && clientWs.readyState === WebSocket.OPEN) {
               clientWs.send(JSON.stringify({ transcript: { role: 'user', text: inputTranscript } }));
             }
 
             // Turn complete or interrupted
-            if (message.serverContent?.turnComplete && clientWs.readyState === clientWs.OPEN) {
+            if (message.serverContent?.turnComplete && clientWs.readyState === WebSocket.OPEN) {
               clientWs.send(JSON.stringify({ turnComplete: true }));
             }
-            if (message.serverContent?.interrupted && clientWs.readyState === clientWs.OPEN) {
+            if (message.serverContent?.interrupted && clientWs.readyState === WebSocket.OPEN) {
               clientWs.send(JSON.stringify({ interrupted: true }));
             }
           } catch (sendErr) {
@@ -236,27 +234,27 @@ wss.on('connection', async (clientWs) => {
         },
         onerror: (error) => {
           console.error('Gemini Live session error:', error);
-          if (clientWs.readyState === clientWs.OPEN) {
-            clientWs.send(JSON.stringify({ error: error.message || 'Live session error' }));
+          if (clientWs.readyState === WebSocket.OPEN) {
+            clientWs.send(JSON.stringify({ error: error?.message || 'Live session error' }));
           }
         },
         onclose: () => {
           console.log('Gemini Live session closed');
-          if (clientWs.readyState === clientWs.OPEN) {
+          if (clientWs.readyState === WebSocket.OPEN) {
             clientWs.send(JSON.stringify({ sessionClosed: true }));
           }
         }
       }
     });
 
-    if (clientWs.readyState === clientWs.OPEN) {
-      clientWs.send(JSON.stringify({ status: 'connected', message: 'Connected to JEHV Voice AI' }));
+    if (clientWs.readyState === WebSocket.OPEN) {
+      clientWs.send(JSON.stringify({ status: 'connected', message: 'Connected to Google Gemini Live Voice AI' }));
     }
 
   } catch (initError) {
     console.error('Failed to initialize Gemini Live session:', initError);
-    if (clientWs.readyState === clientWs.OPEN) {
-      clientWs.send(JSON.stringify({ error: initError.message || 'Failed to start voice session' }));
+    if (clientWs.readyState === WebSocket.OPEN) {
+      clientWs.send(JSON.stringify({ error: initError?.message || 'Failed to initialize Google Live session' }));
     }
   }
 

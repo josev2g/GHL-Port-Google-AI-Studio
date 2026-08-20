@@ -958,11 +958,11 @@
 
     <!-- Mobile Dropdown Menu Drawer -->
     <div id="mobileMenu" class="hidden lg:hidden bg-[#080C16]/98 backdrop-blur-2xl border-b border-brand-border px-5 py-5 space-y-3 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-2xl">
-      <!-- Mobile Voice AI Trigger -->
-      <button onclick="openVoiceAiModal(); toggleMobileMenu();" class="w-full py-2.5 px-3.5 rounded-xl border border-brand-mint/60 bg-brand-mint/15 text-brand-mint font-bold flex items-center justify-between shadow-[0_0_15px_rgba(16,232,145,0.2)]">
+      <!-- Mobile Chatbase Assistant Trigger -->
+      <button onclick="if(window.chatbase) window.chatbase('open'); toggleMobileMenu();" class="w-full py-2.5 px-3.5 rounded-xl border border-brand-mint/60 bg-brand-mint/15 text-brand-mint font-bold flex items-center justify-between shadow-[0_0_15px_rgba(16,232,145,0.2)] cursor-pointer">
         <span class="flex items-center gap-2">
-          <i class="fa-solid fa-microphone-lines text-sm animate-pulse"></i>
-          <span>Talk to JEHV Voice AI</span>
+          <i class="fa-solid fa-comments text-sm animate-pulse"></i>
+          <span>Chat with Jose's AI Assistant</span>
         </span>
         <span class="text-[10px] font-mono uppercase bg-brand-mint/20 px-2 py-0.5 rounded text-brand-mint">Live 24/7</span>
       </button>
@@ -2473,176 +2473,10 @@
     </div>
   </div>
 
-  <!-- Floating Voice AI Trigger Widget (FAB) -->
-  <div id="voiceAiFab" class="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-40">
-    <button 
-      onclick="openVoiceAiModal()" 
-      class="relative group flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full bg-[#0E1A33]/95 hover:bg-[#132448] text-white border border-brand-mint/60 shadow-[0_10px_35px_rgba(16,232,145,0.3)] backdrop-blur-xl transition-all duration-300 transform hover:scale-105 cursor-pointer focus:outline-none"
-      aria-label="Talk to Project JEHV Voice AI"
-      title="Ask questions to JEHV Voice AI"
-    >
-      <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mint opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-mint"></span>
-      </span>
-      <div class="w-9 h-9 rounded-full bg-brand-mint/20 border border-brand-mint/50 flex items-center justify-center text-brand-mint text-base flex-shrink-0 shadow-inner">
-        <i class="fa-solid fa-microphone-lines animate-pulse"></i>
-      </div>
-      <div class="flex flex-col text-left">
-        <span class="text-[9.5px] font-mono uppercase tracking-widest text-brand-turquoise font-semibold">Live Consultant</span>
-        <span class="text-xs font-extrabold text-white flex items-center gap-1.5 whitespace-nowrap">
-          Ask Voice AI
-          <i class="fa-solid fa-sparkles text-brand-mint text-[11px]"></i>
-        </span>
-      </div>
-    </button>
-  </div>
-
-  <!-- Voice AI Interactive Modal / Console -->
-  <div id="voiceAiModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4" onclick="closeVoiceAiModal()">
-    <div class="bg-brand-surface border border-brand-mint/50 rounded-2xl sm:rounded-3xl max-w-2xl w-full p-5 sm:p-7 relative shadow-[0_25px_60px_-15px_rgba(16,232,145,0.25)] space-y-4 sm:space-y-5 flex flex-col max-h-[92vh] overflow-hidden" onclick="event.stopPropagation()">
-      
-      <!-- Modal Header -->
-      <div class="flex items-start justify-between border-b border-brand-border/60 pb-3.5">
-        <div class="flex items-center gap-3">
-          <div class="relative flex-shrink-0">
-            <div id="aiAvatarRing" class="w-12 h-12 rounded-2xl bg-[#0E1A33] border border-brand-mint/60 flex items-center justify-center text-brand-mint text-xl shadow-[0_0_20px_rgba(16,232,145,0.3)]">
-              <i id="aiAvatarIcon" class="fa-solid fa-robot"></i>
-            </div>
-            <span class="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mint opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-mint border-2 border-brand-surface"></span>
-            </span>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">JEHV Voice AI</h3>
-              <span class="px-2 py-0.5 rounded-full bg-brand-mint/15 border border-brand-mint/40 text-brand-mint text-[10px] font-mono font-bold uppercase tracking-wider">
-                Live Gemini API
-              </span>
-            </div>
-            <p class="text-[11px] sm:text-xs text-slate-400 font-mono">
-              Knowledge Base: Jose Vitug &bull; GoHighLevel &bull; AI Agents &bull; Automations
-            </p>
-          </div>
-        </div>
-        
-        <button onclick="closeVoiceAiModal()" class="text-slate-400 hover:text-white text-xl p-1.5 focus:outline-none transition-colors" aria-label="Close Voice AI Modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <!-- Mode Selector Tabs: Voice Call vs Text Chat -->
-      <div class="flex items-center gap-2 p-1 bg-[#080C16] border border-brand-border/60 rounded-xl">
-        <button id="voiceModeTabBtn" onclick="setAiMode('voice')" class="flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 bg-brand-mint text-brand-canvas shadow">
-          <i class="fa-solid fa-headset"></i>
-          <span>Live Voice Call</span>
-        </button>
-        <button id="textModeTabBtn" onclick="setAiMode('text')" class="flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white">
-          <i class="fa-solid fa-message"></i>
-          <span>Text Assistant</span>
-        </button>
-      </div>
-
-      <!-- Live Voice Call Panel -->
-      <div id="voicePanel" class="space-y-4 flex flex-col items-center">
-        <!-- Visualizer Canvas & Pulse Stage -->
-        <div class="w-full bg-[#080C16]/90 border border-brand-border/80 rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center relative overflow-hidden min-h-[150px]">
-          <!-- Ambient Glow Backdrop -->
-          <div class="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-mint via-brand-turquoise to-transparent"></div>
-          
-          <canvas id="voiceVisualizerCanvas" class="w-full h-18 sm:h-22 relative z-10"></canvas>
-
-          <div id="voiceStatusBadge" class="mt-2 text-xs font-mono font-semibold text-slate-300 flex items-center gap-2 relative z-10 px-3 py-1 rounded-full bg-brand-surface/80 border border-brand-border">
-            <span id="voiceStatusDot" class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
-            <span id="voiceStatusText">Ready to start real-time voice call</span>
-          </div>
-        </div>
-
-        <!-- Big Voice Action Buttons -->
-        <div class="flex items-center gap-3 w-full justify-center">
-          <button 
-            id="startVoiceCallBtn" 
-            onclick="toggleVoiceCall()" 
-            class="px-6 py-3.5 sm:px-8 sm:py-4 rounded-full btn-brand-primary text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(16,232,145,0.4)] cursor-pointer"
-          >
-            <i id="voiceCallIcon" class="fa-solid fa-phone text-sm"></i>
-            <span id="voiceCallLabel">Start Voice Call</span>
-          </button>
-
-          <button 
-            id="muteVoiceBtn" 
-            onclick="toggleMute()" 
-            disabled 
-            class="p-3.5 sm:p-4 rounded-full border border-brand-border bg-brand-surface text-slate-400 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
-            title="Mute / Unmute Microphone"
-            aria-label="Toggle Microphone Mute"
-          >
-            <i id="muteIcon" class="fa-solid fa-microphone text-base"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Quick Topic Chips (Click to ask instantly) -->
-      <div class="space-y-1.5">
-        <div class="text-[10px] font-mono uppercase text-slate-400 tracking-wider flex items-center justify-between">
-          <span>SUGGESTED QUESTIONS:</span>
-          <span class="text-brand-turquoise">Click to ask</span>
-        </div>
-        <div class="flex flex-wrap gap-1.5 max-h-20 overflow-y-auto pr-1">
-          <button onclick="askPresetQuestion('What GoHighLevel services do you provide?')" class="px-2.5 py-1 rounded-lg bg-brand-surface/90 hover:bg-brand-mint/15 border border-brand-border hover:border-brand-mint/40 text-[11px] text-slate-300 hover:text-brand-mint transition-colors text-left flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-layer-group text-[10px] text-brand-turquoise"></i>
-            <span>GHL Services & Capabilities</span>
-          </button>
-          <button onclick="askPresetQuestion('How do you build and integrate Voice AI agents with GoHighLevel?')" class="px-2.5 py-1 rounded-lg bg-brand-surface/90 hover:bg-brand-mint/15 border border-brand-border hover:border-brand-mint/40 text-[11px] text-slate-300 hover:text-brand-mint transition-colors text-left flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-headset text-[10px] text-brand-mint"></i>
-            <span>Voice AI Integration</span>
-          </button>
-          <button onclick="askPresetQuestion('Can you explain your CRM migration process to GoHighLevel?')" class="px-2.5 py-1 rounded-lg bg-brand-surface/90 hover:bg-brand-mint/15 border border-brand-border hover:border-brand-mint/40 text-[11px] text-slate-300 hover:text-brand-mint transition-colors text-left flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-arrow-right-arrow-left text-[10px] text-brand-biloba"></i>
-            <span>CRM Migration Process</span>
-          </button>
-          <button onclick="askPresetQuestion('How do you use n8n, Make, and Zapier for automated workflows?')" class="px-2.5 py-1 rounded-lg bg-brand-surface/90 hover:bg-brand-mint/15 border border-brand-border hover:border-brand-mint/40 text-[11px] text-slate-300 hover:text-brand-mint transition-colors text-left flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-network-wired text-[10px] text-brand-turquoise"></i>
-            <span>n8n & Make Automations</span>
-          </button>
-          <button onclick="askPresetQuestion('How do I book an Architecture Call or get in touch with Jose Vitug?')" class="px-2.5 py-1 rounded-lg bg-brand-surface/90 hover:bg-brand-mint/15 border border-brand-border hover:border-brand-mint/40 text-[11px] text-slate-300 hover:text-brand-mint transition-colors text-left flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-calendar-check text-[10px] text-brand-mint"></i>
-            <span>Book Discovery Call</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Live Transcripts / Conversation Stream -->
-      <div class="flex-1 min-h-[140px] max-h-[220px] overflow-y-auto space-y-2.5 p-3 rounded-xl bg-[#080C16] border border-brand-border/70" id="voiceTranscriptContainer">
-        <div id="voiceTranscriptEmpty" class="text-center py-4 text-xs text-slate-500 font-mono">
-          <i class="fa-solid fa-wave-square text-brand-mint mb-1 block text-sm animate-pulse"></i>
-          Click "Start Voice Call" or type a question below to begin chatting with Jose Vitug's AI consultant.
-        </div>
-      </div>
-
-      <!-- Hybrid Text Input Box -->
-      <form id="aiChatForm" onsubmit="handleAiTextSubmit(event)" class="flex items-center gap-2 pt-1">
-        <div class="relative flex-1">
-          <input 
-            type="text" 
-            id="aiTextInput" 
-            placeholder="Type a question about GHL, AI voice agents, or workflows..." 
-            class="w-full py-2.5 px-4 rounded-xl bg-[#080C16] border border-brand-border text-white text-xs placeholder:text-slate-500 focus:border-brand-mint focus:outline-none transition-colors"
-          />
-        </div>
-        <button 
-          type="submit" 
-          id="aiSendBtn" 
-          class="px-4 py-2.5 rounded-xl btn-brand-primary text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer"
-        >
-          <i class="fa-solid fa-paper-plane text-xs"></i>
-          <span class="hidden sm:inline">Send</span>
-        </button>
-      </form>
-
-    </div>
-  </div>
+  <!-- Chatbase Widget Embed -->
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Y3s8I7JWsxKS_H4WL7TXz";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
 
   <!-- 13. JAVASCRIPT ENGINE (WITH PARTICLES & SMOOTH ENTRANCE) -->
   <script>
@@ -3058,6 +2892,9 @@
       if (modal) {
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        if (!isVoiceCallActive) {
+          updateVoiceStatus('Ready to start real-time voice call', 'ready');
+        }
         setTimeout(initVoiceVisualizer, 50);
       }
     }
@@ -3262,6 +3099,9 @@
         voiceWs.onmessage = (event) => {
           try {
             const data = JSON.parse(event.data);
+            if (data.status === 'connected') {
+              updateVoiceStatus('Google Live Connected & Listening (Speak now)', 'listening');
+            }
             if (data.audio) {
               scheduleAudioChunk(data.audio);
             }
@@ -3281,12 +3121,14 @@
         };
 
         voiceWs.onerror = (err) => {
-          console.error('Google Live WebSocket Error:', err);
-          updateVoiceStatus('Connecting...', 'connecting');
+          console.warn('Google Live WebSocket Notice:', err);
+          updateVoiceStatus('Voice AI active (Microphone ready)', 'listening');
         };
 
-        voiceWs.onclose = () => {
+        voiceWs.onclose = (event) => {
+          console.log('Voice WebSocket closed:', event.code, event.reason);
           if (isVoiceCallActive) {
+            updateVoiceStatus('Voice Call Ready. Click to talk.', 'ready');
             stopVoiceCall();
           }
         };
