@@ -3022,28 +3022,73 @@
     });
 
     // ==========================================================================
-    // VOICE AI CONTROLLER (GEMINI LIVE REAL-TIME API & PROJECT JEHV AGENT)
+    // PROJECT JEHV INTELLIGENT KNOWLEDGE BASE & VOICE CONSULTANT ENGINE
+    // Works on GitHub Pages, static hosting, and full-stack environments.
     // ==========================================================================
+    
+    // 1. Client-Side Knowledge Base Engine
+    function getJehvAiResponse(queryText) {
+      const query = (queryText || '').toLowerCase().trim();
+
+      if (query.includes('crm') || query.includes('build') || query.includes('gohighlevel') || query.includes('highlevel') || query.includes('ghl')) {
+        if (query.includes('what crm') || query.includes('can you build') || query.includes('types') || query.includes('industry') || query.includes('which crm')) {
+          return "Jose builds custom GoHighLevel CRM ecosystems tailored to specific business models, including:\n\n" +
+                 "1. Solar & Home Services CRM: Multi-location technician dispatch, 60-second speed-to-lead auto-dialer, Missed-Call Text Back (MCTB), and automated review campaigns.\n" +
+                 "2. MedSpa & Aesthetic Clinic Booking Engine: HIPAA-conscious intake forms, Stripe deposit payments, calendar booking automations, and VIP re-activation campaigns.\n" +
+                 "3. Real Estate Brokerage Pipeline: Multi-tier agent lead routing, automated MLS webhook alerts, and contract closing deadline reminders.\n" +
+                 "4. E-Commerce & Info-Product Funnels: Custom LMS membership areas, affiliate commission tracking, and post-purchase upsells.\n" +
+                 "5. HighLevel SaaS Pro Setups: White-label client onboarding, Stripe rebilling, and turnkey snapshot architecture.";
+        }
+        return "Jose Vitug provides full GoHighLevel (GHL) architecture, including custom Sub-Account setups, turnkey Snapshots, sales pipelines, custom values/fields, A2P 10DLC compliance, and custom client portals.";
+      }
+
+      if (query.includes('voice') || query.includes('call') || query.includes('vapi') || query.includes('retell') || query.includes('bland') || query.includes('synthflow') || query.includes('phone') || query.includes('agent')) {
+        return "Jose builds and integrates Voice AI agents using Vapi.ai, Retell AI, Bland AI, and Synthflow directly into GoHighLevel. Key features include 24/7 inbound lead qualification, 60-second speed-to-lead callbacks, direct calendar booking via GHL webhooks, live human transfers, and post-call CRM notes.";
+      }
+
+      if (query.includes('n8n') || query.includes('make') || query.includes('zapier') || query.includes('automation') || query.includes('workflow') || query.includes('webhook') || query.includes('integromat')) {
+        return "Jose develops multi-branch workflow automations using n8n (self-hosted & cloud), Make.com (Integromat), and Zapier Enterprise. He connects webhooks, custom API microservices (Stripe, Twilio, OpenAI, Google Workspace, Slack), and automated error-handling routines.";
+      }
+
+      if (query.includes('migrat') || query.includes('hubspot') || query.includes('keap') || query.includes('infusionsoft') || query.includes('activecampaign') || query.includes('clickfunnels') || query.includes('podio')) {
+        return "Jose specializes in zero-downtime CRM migrations from HubSpot, Keap, ActiveCampaign, ClickFunnels, and Podio to GoHighLevel. This covers complete contact mapping, custom field recreation, pipeline transfer, and workflow migration with zero lead loss.";
+      }
+
+      if (query.includes('book') || query.includes('hire') || query.includes('contact') || query.includes('schedule') || query.includes('call') || query.includes('email') || query.includes('price') || query.includes('cost') || query.includes('discovery')) {
+        return "You can book a 30-Minute Architecture & Systems Discovery Call directly using the 'Book Architecture Call' button on this site, or reach out to Jose directly at josevitug@gmail.com. Jose provides full builds, turnkey snapshots, and monthly system retainers.";
+      }
+
+      if (query.includes('who is') || query.includes('about') || query.includes('experience') || query.includes('background') || query.includes('jose') || query.includes('skills')) {
+        return "Jose Vitug is an AI & Automation Specialist, GoHighLevel Architect, and Full-Stack Systems Engineer with deep expertise in enterprise automation, Voice AI integrations, CRM migrations, and scalable business infrastructure.";
+      }
+
+      if (query.includes('a2p') || query.includes('10dlc') || query.includes('sms') || query.includes('compliance')) {
+        return "Jose handles end-to-end A2P 10DLC Brand and Campaign registration, compliant opt-in language, messaging privacy policies, and webhook error-monitoring to guarantee 99%+ SMS deliverability across US carriers.";
+      }
+
+      if (query.includes('hello') || query.includes('hi') || query.includes('hey') || query.includes('good morning') || query.includes('good afternoon')) {
+        return "Hello! I am JEHV Voice AI, representing Jose Vitug. How can I help you today regarding GoHighLevel architecture, AI voice agents, or automated workflows?";
+      }
+
+      return "Jose Vitug specializes in GoHighLevel (GHL) system architecture, Voice AI integration (Vapi, Bland, Retell), workflow automation (n8n, Make, Zapier), and zero-loss CRM migrations. Would you like details on custom CRM builds, Voice AI setups, or scheduling an architecture call?";
+    }
+
+    // 2. State & Audio Engine
     let voiceWs = null;
-    let inputAudioContext = null;
-    let outputAudioContext = null;
-    let micMediaStream = null;
-    let scriptProcessor = null;
+    let speechRecognition = null;
     let isVoiceCallActive = false;
     let isMicMuted = false;
-    let nextAudioStartTime = 0;
-    let activeAudioSources = [];
-    let currentAiMode = 'voice';
     let conversationChatHistory = [];
     let isAiSpeakingNow = false;
     let visualizerAnimId = null;
+    let currentAiMode = 'voice';
 
     function openVoiceAiModal() {
       const modal = document.getElementById('voiceAiModal');
       if (modal) {
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-        initVoiceVisualizer();
+        setTimeout(initVoiceVisualizer, 50);
       }
     }
 
@@ -3056,6 +3101,9 @@
       if (isVoiceCallActive) {
         stopVoiceCall();
       }
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
     }
 
     function setAiMode(mode) {
@@ -3065,254 +3113,274 @@
       const voicePanel = document.getElementById('voicePanel');
 
       if (mode === 'voice') {
-        voiceTabBtn.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 bg-brand-mint text-brand-canvas shadow';
-        textTabBtn.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white';
+        if (voiceTabBtn) voiceTabBtn.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 bg-brand-mint text-brand-canvas shadow';
+        if (textTabBtn) textTabBtn.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white';
         if (voicePanel) voicePanel.classList.remove('hidden');
       } else {
-        textTabBtn.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 bg-brand-mint text-brand-canvas shadow';
-        voiceTabBtn.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white';
+        if (textTabBtn) textTabBtn.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 bg-brand-mint text-brand-canvas shadow';
+        if (voiceTabBtn) voiceTabBtn.className = 'flex-1 py-2 px-3 rounded-lg text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white';
         if (voicePanel) voicePanel.classList.add('hidden');
       }
     }
 
-    // Audio Helpers: Float32 <-> 16-bit PCM <-> Base64
-    function floatTo16BitPCM(input) {
-      const output = new Int16Array(input.length);
-      for (let i = 0; i < input.length; i++) {
-        const s = Math.max(-1, Math.min(1, input[i]));
-        output[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+    // Speech Synthesis for Speaking Responses Out Loud
+    function speakText(text, onComplete) {
+      if (!('speechSynthesis' in window)) {
+        if (onComplete) onComplete();
+        return;
       }
-      return output;
-    }
 
-    function base64EncodeAudio(int16Array) {
-      let binary = '';
-      const bytes = new Uint8Array(int16Array.buffer);
-      const len = bytes.byteLength;
-      for (let i = 0; i < len; i++) {
-        binary += String.fromCharCode(bytes[i]);
-      }
-      return window.btoa(binary);
-    }
-
-    function base64ToFloat32Array(base64) {
-      const binary = window.atob(base64);
-      const bytes = new Uint8Array(binary.length);
-      for (let i = 0; i < binary.length; i++) {
-        bytes[i] = binary.charCodeAt(i);
-      }
-      const int16Array = new Int16Array(bytes.buffer);
-      const float32Array = new Float32Array(int16Array.length);
-      for (let i = 0; i < int16Array.length; i++) {
-        float32Array[i] = int16Array[i] / 32768.0;
-      }
-      return float32Array;
-    }
-
-    function scheduleAudioChunk(base64Chunk) {
       try {
-        if (!outputAudioContext) {
-          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-          outputAudioContext = new AudioContextClass({ sampleRate: 24000 });
-        }
-        if (outputAudioContext.state === 'suspended') {
-          outputAudioContext.resume();
-        }
+        window.speechSynthesis.cancel(); // Stop any prior speech
+
+        // Clean up markdown/numbers for smoother spoken voice
+        const spokenText = text.replace(/[*#_`]/g, '').replace(/https?:\/\/\S+/g, 'link');
+        const utterance = new SpeechSynthesisUtterance(spokenText);
+        utterance.rate = 1.05;
+        utterance.pitch = 1.0;
+
+        // Select an articulate English voice if available
+        const voices = window.speechSynthesis.getVoices();
+        const preferredVoice = voices.find(v => (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Daniel') || v.lang === 'en-US') && v.lang.startsWith('en'));
+        if (preferredVoice) utterance.voice = preferredVoice;
 
         isAiSpeakingNow = true;
         updateVoiceStatus('AI Speaking...', 'speaking');
 
-        const float32Data = base64ToFloat32Array(base64Chunk);
-        const audioBuffer = outputAudioContext.createBuffer(1, float32Data.length, 24000);
-        audioBuffer.getChannelData(0).set(float32Data);
+        utterance.onend = () => {
+          isAiSpeakingNow = false;
+          if (isVoiceCallActive) {
+            updateVoiceStatus('Listening... (Speak now)', 'listening');
+            resumeSpeechRecognition();
+          }
+          if (onComplete) onComplete();
+        };
 
-        const source = outputAudioContext.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(outputAudioContext.destination);
+        utterance.onerror = () => {
+          isAiSpeakingNow = false;
+          if (isVoiceCallActive) {
+            updateVoiceStatus('Listening... (Speak now)', 'listening');
+            resumeSpeechRecognition();
+          }
+          if (onComplete) onComplete();
+        };
 
-        const currentTime = outputAudioContext.currentTime;
-        if (nextAudioStartTime < currentTime) {
-          nextAudioStartTime = currentTime;
+        window.speechSynthesis.speak(utterance);
+      } catch (e) {
+        console.warn('Speech synthesis error:', e);
+        isAiSpeakingNow = false;
+        if (onComplete) onComplete();
+      }
+    }
+
+    // Speech Recognition Controller
+    function initBrowserSpeechRecognition() {
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) {
+        return null;
+      }
+
+      const rec = new SpeechRec();
+      rec.continuous = true;
+      rec.interimResults = false;
+      rec.lang = 'en-US';
+
+      rec.onresult = async (event) => {
+        if (!isVoiceCallActive || isMicMuted || isAiSpeakingNow) return;
+        
+        let finalTranscript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            finalTranscript += event.results[i][0].transcript;
+          }
         }
 
-        source.start(nextAudioStartTime);
-        nextAudioStartTime += audioBuffer.duration;
-        activeAudioSources.push(source);
+        const userSpokenText = finalTranscript.trim();
+        if (userSpokenText.length > 1) {
+          appendTranscriptBubble('user', userSpokenText);
+          
+          // Pause recognition while AI responds and speaks
+          pauseSpeechRecognition();
+          updateVoiceStatus('AI Thinking...', 'thinking');
+          
+          // Get response from local engine or backend
+          const aiReply = await getAiResponseForQuery(userSpokenText);
+          appendTranscriptBubble('assistant', aiReply);
+          speakText(aiReply);
+        }
+      };
 
-        source.onended = () => {
-          const idx = activeAudioSources.indexOf(source);
-          if (idx !== -1) activeAudioSources.splice(idx, 1);
-          if (activeAudioSources.length === 0) {
-            isAiSpeakingNow = false;
-            if (isVoiceCallActive) {
-              updateVoiceStatus('Listening... (Speak now)', 'listening');
-            }
+      rec.onerror = (e) => {
+        console.warn('Speech recognition status:', e.error);
+        if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+          updateVoiceStatus('Microphone permission denied', 'error');
+          stopVoiceCall();
+        }
+        if (e.error === 'network') {
+          updateVoiceStatus('Voice ready (click preset or type below)', 'listening');
+        }
+      };
+
+      rec.onend = () => {
+        // Keep recognition alive while call is active and AI isn't speaking
+        if (isVoiceCallActive && !isAiSpeakingNow && !isMicMuted) {
+          try { 
+            rec.start(); 
+          } catch (err) {
+            // Ignore if already started
           }
-        };
+        }
+      };
+
+      return rec;
+    }
+
+    function pauseSpeechRecognition() {
+      if (speechRecognition) {
+        try { 
+          speechRecognition.abort(); 
+        } catch (e) {}
+      }
+    }
+
+    function resumeSpeechRecognition() {
+      if (isVoiceCallActive && speechRecognition && !isMicMuted && !isAiSpeakingNow) {
+        try { 
+          speechRecognition.start(); 
+        } catch (e) {
+          setTimeout(() => {
+            if (isVoiceCallActive && !isAiSpeakingNow && !isMicMuted) {
+              try { speechRecognition.start(); } catch (err) {}
+            }
+          }, 150);
+        }
+      }
+    }
+
+    // Unified AI Response Query Resolver
+    async function getAiResponseForQuery(query) {
+      // Attempt to query server backend /api/chat if available
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: query,
+            history: conversationChatHistory.slice(0, -1)
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.text) return data.text;
+        }
       } catch (err) {
-        console.error('Error playing audio chunk:', err);
+        // Server not available (e.g. static GitHub Pages) - seamless fallback
       }
+
+      // Client-side knowledge base fallback
+      return getJehvAiResponse(query);
     }
 
-    function stopAllAudioPlayback() {
-      activeAudioSources.forEach(source => {
-        try { source.stop(); } catch (e) {}
-      });
-      activeAudioSources = [];
-      isAiSpeakingNow = false;
-      if (outputAudioContext) {
-        nextAudioStartTime = outputAudioContext.currentTime;
-      }
-    }
-
-    // Toggle Voice Call Connection
-    async function toggleVoiceCall() {
-      if (isVoiceCallActive) {
-        stopVoiceCall();
-      } else {
-        await startVoiceCall();
+    // Start / Stop Voice Call
+    function toggleVoiceCall() {
+      try {
+        if (isVoiceCallActive) {
+          stopVoiceCall();
+        } else {
+          startVoiceCall();
+        }
+      } catch (err) {
+        console.error('toggleVoiceCall error:', err);
       }
     }
 
     async function startVoiceCall() {
-      updateVoiceStatus('Requesting Microphone Access...', 'connecting');
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
       const startBtn = document.getElementById('startVoiceCallBtn');
       const callLabel = document.getElementById('voiceCallLabel');
       const callIcon = document.getElementById('voiceCallIcon');
       const muteBtn = document.getElementById('muteVoiceBtn');
 
       try {
-        // 1. Get Microphone Media Stream
-        micMediaStream = await navigator.mediaDevices.getUserMedia({
-          audio: {
-            channelCount: 1,
-            sampleRate: 16000,
-            echoCancellation: true,
-            noiseSuppression: true,
-            autoGainControl: true,
+        isVoiceCallActive = true;
+        isMicMuted = false;
+
+        if (startBtn) {
+          startBtn.classList.remove('btn-brand-primary');
+          startBtn.classList.add('bg-red-500', 'hover:bg-red-600', 'text-white');
+        }
+        if (callLabel) callLabel.textContent = 'End Voice Call';
+        if (callIcon) callIcon.className = 'fa-solid fa-phone-slash text-sm';
+        if (muteBtn) {
+          muteBtn.disabled = false;
+          muteBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        // Try to trigger mic permission gracefully
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia({ audio: true }).catch((micErr) => {
+            console.warn('Microphone permission info:', micErr);
+          });
+        }
+
+        if (SpeechRec) {
+          if (!speechRecognition) {
+            speechRecognition = initBrowserSpeechRecognition();
           }
-        });
-
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        inputAudioContext = new AudioContextClass({ sampleRate: 16000 });
-        outputAudioContext = new AudioContextClass({ sampleRate: 24000 });
-
-        if (inputAudioContext.state === 'suspended') await inputAudioContext.resume();
-        if (outputAudioContext.state === 'suspended') await outputAudioContext.resume();
-
-        nextAudioStartTime = outputAudioContext.currentTime;
-
-        // 2. Connect WebSocket to backend Live route
-        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const wsUrl = `${protocol}//${window.location.host}/api/live`;
-        updateVoiceStatus('Connecting to Gemini Live API...', 'connecting');
-
-        voiceWs = new WebSocket(wsUrl);
-
-        voiceWs.onopen = () => {
-          isVoiceCallActive = true;
-          updateVoiceStatus('Connected & Listening (Speak now)', 'listening');
-
-          if (startBtn) {
-            startBtn.classList.remove('btn-brand-primary');
-            startBtn.classList.add('bg-red-500', 'hover:bg-red-600', 'text-white');
+          if (speechRecognition) {
+            try { speechRecognition.start(); } catch (startErr) {}
           }
-          if (callLabel) callLabel.textContent = 'End Voice Call';
-          if (callIcon) callIcon.className = 'fa-solid fa-phone-slash text-sm';
-          if (muteBtn) muteBtn.disabled = false;
+        }
 
-          // Start capturing audio from mic
-          const source = inputAudioContext.createMediaStreamSource(micMediaStream);
-          scriptProcessor = inputAudioContext.createScriptProcessor(2048, 1, 1);
-
-          scriptProcessor.onaudioprocess = (e) => {
-            if (!isVoiceCallActive || isMicMuted || !voiceWs || voiceWs.readyState !== WebSocket.OPEN) return;
-            const inputData = e.inputBuffer.getChannelData(0);
-            const pcm16 = floatTo16BitPCM(inputData);
-            const base64Audio = base64EncodeAudio(pcm16);
-            voiceWs.send(JSON.stringify({ audio: base64Audio }));
+        // Speak greeting out loud immediately
+        const welcomeMsg = "Hello! I am JEHV Voice AI, representing Jose Vitug. How can I help you today regarding GoHighLevel architecture, AI voice agents, or automated workflows?";
+        appendTranscriptBubble('assistant', welcomeMsg);
+        
+        // Ensure speech synthesis voices are populated in Chrome/Safari
+        if (window.speechSynthesis && window.speechSynthesis.getVoices().length === 0) {
+          window.speechSynthesis.onvoiceschanged = () => {
+            speakText(welcomeMsg);
           };
-
-          source.connect(scriptProcessor);
-          scriptProcessor.connect(inputAudioContext.destination);
-
-          appendTranscriptBubble('assistant', 'Hello! I am JEHV Voice AI, representing Jose Vitug. How can I help you today regarding GoHighLevel architecture, AI voice agents, or automated workflows?');
-        };
-
-        voiceWs.onmessage = (event) => {
-          try {
-            const data = JSON.parse(event.data);
-            if (data.audio) {
-              scheduleAudioChunk(data.audio);
-            }
-            if (data.transcript) {
-              appendTranscriptBubble(data.transcript.role, data.transcript.text);
-            }
-            if (data.interrupted) {
-              stopAllAudioPlayback();
-              updateVoiceStatus('Listening...', 'listening');
-            }
-            if (data.turnComplete) {
-              // Model finished speaking its turn
-            }
-            if (data.error) {
-              console.warn('Live API message warning:', data.error);
-              appendTranscriptBubble('assistant', 'Note: ' + data.error);
-            }
-          } catch (e) {
-            console.error('Error handling WS message:', e);
-          }
-        };
-
-        voiceWs.onerror = (err) => {
-          console.error('Voice WebSocket Error:', err);
-          updateVoiceStatus('Voice connection issue. Switched to assistant mode.', 'error');
-        };
-
-        voiceWs.onclose = () => {
-          stopVoiceCall();
-        };
+        }
+        
+        updateVoiceStatus('Listening... (Speak now or click below)', 'listening');
+        speakText(welcomeMsg);
 
       } catch (err) {
-        console.error('Failed to start voice call:', err);
-        updateVoiceStatus('Microphone blocked or not available', 'error');
-        appendTranscriptBubble('assistant', 'Microphone access could not be established. You can still type any questions below in Text Assistant mode!');
-        setAiMode('text');
+        console.warn('Voice call initiation caught:', err);
+        updateVoiceStatus('Voice session ready. Click any topic or speak.', 'listening');
       }
     }
 
     function stopVoiceCall() {
       isVoiceCallActive = false;
-      stopAllAudioPlayback();
+      isAiSpeakingNow = false;
+      isMicMuted = false;
+      
+      if (window.speechSynthesis) {
+        try { window.speechSynthesis.cancel(); } catch (e) {}
+      }
 
-      if (scriptProcessor) {
-        try { scriptProcessor.disconnect(); } catch (e) {}
-        scriptProcessor = null;
-      }
-      if (micMediaStream) {
-        try { micMediaStream.getTracks().forEach(track => track.stop()); } catch (e) {}
-        micMediaStream = null;
-      }
-      if (inputAudioContext) {
-        try { inputAudioContext.close(); } catch (e) {}
-        inputAudioContext = null;
-      }
-      if (voiceWs) {
-        try { voiceWs.close(); } catch (e) {}
-        voiceWs = null;
+      if (speechRecognition) {
+        try { speechRecognition.stop(); } catch (e) {}
+        speechRecognition = null;
       }
 
       const startBtn = document.getElementById('startVoiceCallBtn');
       const callLabel = document.getElementById('voiceCallLabel');
       const callIcon = document.getElementById('voiceCallIcon');
-      const muteBtn = document.getElementById('muteVoiceBtn');
 
       if (startBtn) {
+        startBtn.classList.remove('bg-red-500', 'hover:bg-red-600', 'text-white');
         startBtn.className = 'px-6 py-3.5 sm:px-8 sm:py-4 rounded-full btn-brand-primary text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(16,232,145,0.4)] cursor-pointer';
       }
       if (callLabel) callLabel.textContent = 'Start Voice Call';
       if (callIcon) callIcon.className = 'fa-solid fa-phone text-sm';
-      if (muteBtn) muteBtn.disabled = true;
+      if (muteBtn) {
+        const muteIcon = document.getElementById('muteIcon');
+        muteBtn.disabled = true;
+        muteBtn.classList.remove('border-red-500/60', 'bg-red-500/15');
+      }
 
       updateVoiceStatus('Call Ended. Ready to start again.', 'ready');
     }
@@ -3321,13 +3389,16 @@
       isMicMuted = !isMicMuted;
       const muteBtn = document.getElementById('muteVoiceBtn');
       const muteIcon = document.getElementById('muteIcon');
+      
       if (isMicMuted) {
+        pauseSpeechRecognition();
         if (muteIcon) muteIcon.className = 'fa-solid fa-microphone-slash text-base text-red-400';
         if (muteBtn) muteBtn.classList.add('border-red-500/60', 'bg-red-500/15');
         updateVoiceStatus('Microphone Muted', 'muted');
       } else {
         if (muteIcon) muteIcon.className = 'fa-solid fa-microphone text-base text-slate-300';
         if (muteBtn) muteBtn.classList.remove('border-red-500/60', 'bg-red-500/15');
+        resumeSpeechRecognition();
         updateVoiceStatus(isAiSpeakingNow ? 'AI Speaking...' : 'Listening... (Speak now)', isAiSpeakingNow ? 'speaking' : 'listening');
       }
     }
@@ -3343,7 +3414,6 @@
         dotEl.className = 'w-2 h-2 rounded-full animate-pulse ' + (
           stateType === 'speaking' ? 'bg-brand-turquoise' :
           stateType === 'listening' ? 'bg-brand-mint' :
-          stateType === 'connecting' ? 'bg-amber-400' :
           stateType === 'muted' ? 'bg-red-400' :
           stateType === 'error' ? 'bg-red-500' : 'bg-slate-400'
         );
@@ -3360,80 +3430,82 @@
       }
     }
 
-    // Dynamic Voice Visualizer Waveform Canvas
+    // Dynamic Audio Waveform Visualizer
     function initVoiceVisualizer() {
       const canvas = document.getElementById('voiceVisualizerCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       let angle = 0;
 
-      function resize() {
-        canvas.width = canvas.parentElement ? canvas.parentElement.clientWidth - 40 : 400;
-        canvas.height = 90;
-      }
-      resize();
+      canvas.width = canvas.parentElement ? (canvas.parentElement.clientWidth || 360) : 360;
+      canvas.height = 80;
 
       if (visualizerAnimId) cancelAnimationFrame(visualizerAnimId);
 
       function draw() {
+        if (!document.getElementById('voiceAiModal') || document.getElementById('voiceAiModal').classList.contains('hidden')) {
+          visualizerAnimId = requestAnimationFrame(draw);
+          return;
+        }
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const isSlate = document.documentElement.classList.contains('theme-slate');
-        const numBars = 36;
-        const barWidth = (canvas.width / numBars) * 0.55;
-        const gap = (canvas.width / numBars) * 0.45;
+        const numBars = 32;
+        const barWidth = (canvas.width / numBars) * 0.5;
+        const gap = (canvas.width / numBars) * 0.5;
         const centerY = canvas.height / 2;
 
         for (let i = 0; i < numBars; i++) {
           const x = i * (barWidth + gap) + gap / 2;
-          let heightMultiplier = 4;
+          let heightMultiplier = 3;
 
           if (isVoiceCallActive) {
             if (isAiSpeakingNow) {
-              heightMultiplier = Math.sin(angle * 2.5 + i * 0.4) * 26 + 32;
+              heightMultiplier = Math.sin(angle * 3.0 + i * 0.5) * 22 + 28;
             } else if (!isMicMuted) {
-              heightMultiplier = Math.sin(angle * 1.8 + i * 0.3) * 14 + 18;
+              heightMultiplier = Math.sin(angle * 2.0 + i * 0.4) * 10 + 14;
             } else {
-              heightMultiplier = 5;
+              heightMultiplier = 4;
             }
           } else {
-            heightMultiplier = Math.sin(angle + i * 0.2) * 5 + 7;
+            heightMultiplier = Math.sin(angle + i * 0.25) * 4 + 6;
           }
 
-          const h = Math.max(4, heightMultiplier);
+          const h = Math.max(3, heightMultiplier);
           const y = centerY - h / 2;
 
-          // Gradient bar
           const grad = ctx.createLinearGradient(0, y, 0, y + h);
           if (isSlate) {
             grad.addColorStop(0, '#0284C7');
-            grad.addColorStop(0.5, '#6366F1');
             grad.addColorStop(1, '#10B981');
           } else {
             grad.addColorStop(0, '#60BCE7');
-            grad.addColorStop(0.5, '#AAA4EF');
             grad.addColorStop(1, '#10E891');
           }
 
           ctx.fillStyle = grad;
           ctx.beginPath();
-          ctx.roundRect(x, y, barWidth, h, 3);
+          ctx.roundRect(x, y, barWidth, h, 2);
           ctx.fill();
         }
 
-        angle += 0.06;
+        angle += 0.07;
         visualizerAnimId = requestAnimationFrame(draw);
       }
 
       draw();
     }
 
-    // Append Chat Bubble to Transcript Stream
+    // Transcript Stream Bubble Renderer
     function appendTranscriptBubble(role, text) {
       const container = document.getElementById('voiceTranscriptContainer');
       const emptyState = document.getElementById('voiceTranscriptEmpty');
       if (emptyState) emptyState.remove();
 
       if (!container) return;
+
+      // Format linebreaks into clean HTML
+      const formattedText = (text || '').replace(/\n/g, '<br>');
 
       const bubbleWrap = document.createElement('div');
       bubbleWrap.className = role === 'user' ? 'flex justify-end gap-2 items-start' : 'flex justify-start gap-2 items-start';
@@ -3445,27 +3517,24 @@
         ? `max-w-[85%] p-3 rounded-2xl rounded-tr-none bg-brand-mint text-brand-canvas text-xs font-semibold shadow-md voice-chat-bubble-user ${animClass}` 
         : `max-w-[85%] p-3 rounded-2xl rounded-tl-none bg-brand-surface border border-brand-border text-slate-200 text-xs leading-relaxed shadow-md voice-chat-bubble-ai ${animClass}`;
 
-      bubble.innerHTML = `<div class="text-[10px] font-mono uppercase tracking-wider mb-1 opacity-75 font-bold">${isUser ? 'You' : 'JEHV Voice AI'}</div><div>${text}</div>`;
+      bubble.innerHTML = `<div class="text-[10px] font-mono uppercase tracking-wider mb-1 opacity-75 font-bold">${isUser ? 'You' : 'JEHV Voice AI'}</div><div>${formattedText}</div>`;
 
       bubbleWrap.appendChild(bubble);
       container.appendChild(bubbleWrap);
       container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
 
-      // Keep record in conversation history
       conversationChatHistory.push({ role, text });
-      if (conversationChatHistory.length > 20) {
-        conversationChatHistory.shift();
-      }
+      if (conversationChatHistory.length > 25) conversationChatHistory.shift();
     }
 
-    // Preset Suggested Question Action
+    // Suggested Preset Questions
     function askPresetQuestion(questionText) {
       const input = document.getElementById('aiTextInput');
       if (input) input.value = questionText;
       handleAiTextSubmit(new Event('submit'));
     }
 
-    // Handle Typed Text Question Submission
+    // Typed Text Question Submission Handler
     async function handleAiTextSubmit(e) {
       if (e && e.preventDefault) e.preventDefault();
       const input = document.getElementById('aiTextInput');
@@ -3478,36 +3547,16 @@
       input.value = '';
       appendTranscriptBubble('user', query);
 
-      // If active Live WebSocket is open, send text through Live Session
-      if (voiceWs && voiceWs.readyState === WebSocket.OPEN) {
-        voiceWs.send(JSON.stringify({ text: query }));
-        updateVoiceStatus('AI Processing Query...', 'speaking');
-        return;
-      }
-
-      // Otherwise send query via Server-Side /api/chat endpoint
       if (sendBtn) sendBtn.disabled = true;
       try {
-        const res = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: query,
-            history: conversationChatHistory.slice(0, -1)
-          })
-        });
-
-        if (!res.ok) {
-          throw new Error('Failed to get response from AI consultant');
-        }
-
-        const data = await res.json();
-        if (data.text) {
-          appendTranscriptBubble('assistant', data.text);
+        const reply = await getAiResponseForQuery(query);
+        appendTranscriptBubble('assistant', reply);
+        if (isVoiceCallActive) {
+          speakText(reply);
         }
       } catch (err) {
-        console.error('Chat error:', err);
-        appendTranscriptBubble('assistant', "I apologize, I couldn't reach the AI engine right now. Please feel free to reach Jose directly via the contact form or at josevitug@gmail.com!");
+        const fallbackReply = getJehvAiResponse(query);
+        appendTranscriptBubble('assistant', fallbackReply);
       } finally {
         if (sendBtn) sendBtn.disabled = false;
       }
