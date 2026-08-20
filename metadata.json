@@ -1,6 +1,6 @@
 {
   "name": "Jose Vitug Portfolio",
   "description": "Portfolio website for Jose Vitug - AI & Automation Specialist, GoHighLevel Architect, and Full-Stack Systems Engineer",
-  "requestFramePermissions": ["microphone"],
+  "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
