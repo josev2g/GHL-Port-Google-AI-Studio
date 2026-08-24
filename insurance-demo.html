@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEHV Insurance | Protect What Matters Most</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .step-content { display: none; }
+        .step-content.active { display: block; }
+        .tab-active { border-color: #10b981 !important; background-color: rgba(16, 185, 129, 0.15) !important; color: white !important; }
+        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .animate-spin-custom { animation: spin-slow 1.8s linear infinite; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+    <!-- Top Portfolio Back Banner -->
+    <div class="bg-slate-950 text-slate-300 text-xs px-4 py-2 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-mono font-medium">LIVE DEMO &bull; JEHV Insurance Lead Generation Funnel</span>
+        </div>
+        <a href="/#websites" class="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1 transition-colors">
+            &larr; Back to Jose Vitug Portfolio
+        </a>
+    </div>
+
+    <!-- 1. STICKY HEADER -->
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="bg-emerald-600 p-2 rounded-xl text-white shadow-md shadow-emerald-200">
+                    <i data-lucide="shield" class="w-6 h-6"></i>
+                </div>
+                <span class="text-2xl font-black tracking-tighter text-slate-900 uppercase">
+                    JEHV<span class="text-emerald-600 italic">Insurance</span>
+                </span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-6">
+                <div class="flex items-center gap-2 text-sm font-medium text-slate-600">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i> A+ Rated Carriers
+                </div>
+                <div class="flex items-center gap-2 text-sm font-medium text-slate-600 border-l pl-6 border-slate-200">
+                    <i data-lucide="users" class="w-4 h-4 text-emerald-600"></i> Local Licensed Agents
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="tel:8005550199" class="hidden sm:flex items-center gap-2 text-slate-900 font-bold hover:text-emerald-700 transition">
+                    <i data-lucide="phone" class="w-5 h-5 text-emerald-600"></i> (800) 555-0199
+                </a>
+                <button onclick="scrollToQuote()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-emerald-200 transition-all transform hover:scale-105 cursor-pointer">
+                    Get Free Quote
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative bg-slate-900 pt-20 pb-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Instant Online Rate Comparison
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                Protect What Matters Most. <br />
+                <span class="text-emerald-400">Compare & Save Up To 30% Today.</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Fast, custom quotes for Auto, Home, and Life insurance from top-rated providers in under 2 minutes.
+            </p>
+
+            <!-- Insurance Type Switcher -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                <button onclick="selectType('Auto')" id="tab-Auto" class="flex items-center justify-center gap-3 p-5 rounded-2xl border-2 border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700 transition-all cursor-pointer">
+                    <i data-lucide="car" class="w-6 h-6"></i>
+                    <span class="font-bold text-lg">Auto Insurance</span>
+                </button>
+                <button onclick="selectType('Home')" id="tab-Home" class="flex items-center justify-center gap-3 p-5 rounded-2xl border-2 border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700 transition-all cursor-pointer">
+                    <i data-lucide="home" class="w-6 h-6"></i>
+                    <span class="font-bold text-lg">Home Insurance</span>
+                </button>
+                <button onclick="selectType('Life')" id="tab-Life" class="flex items-center justify-center gap-3 p-5 rounded-2xl border-2 border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700 transition-all cursor-pointer">
+                    <i data-lucide="heart" class="w-6 h-6"></i>
+                    <span class="font-bold text-lg">Life Insurance</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MULTI-STEP FUNNEL -->
+    <section id="quote-section" class="max-w-4xl mx-auto -mt-16 px-4 relative z-20">
+        <div class="bg-white rounded-3xl shadow-2xl p-6 sm:p-10 border border-slate-100 min-h-[460px] flex flex-col justify-center">
+            
+            <!-- Progress Bar (Hidden on success/loading) -->
+            <div id="funnel-header" class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Your Custom Quote</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Quick 3-step verification</p>
+                </div>
+                <div class="flex gap-1.5 items-center">
+                    <div id="dot-1" class="h-2 w-8 rounded-full bg-emerald-500 transition-all duration-300"></div>
+                    <div id="dot-2" class="h-2 w-8 rounded-full bg-slate-200 transition-all duration-300"></div>
+                    <div id="dot-3" class="h-2 w-8 rounded-full bg-slate-200 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- Step 1: Coverage Type -->
+            <div id="step-1" class="step-content active animate-in fade-in">
+                <p class="text-base sm:text-lg font-semibold text-slate-700 mb-6">What type of coverage do you need?</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button onclick="nextStep()" class="p-4 rounded-2xl border-2 border-slate-200 text-left hover:border-emerald-500 hover:bg-emerald-50/50 transition-all group cursor-pointer">
+                        <div class="font-bold text-slate-900 group-hover:text-emerald-700 flex items-center justify-between">
+                            <span>Auto Insurance</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-500 mt-1">Save on average $500/year</div>
+                    </button>
+                    <button onclick="nextStep()" class="p-4 rounded-2xl border-2 border-slate-200 text-left hover:border-emerald-500 hover:bg-emerald-50/50 transition-all group cursor-pointer">
+                        <div class="font-bold text-slate-900 group-hover:text-emerald-700 flex items-center justify-between">
+                            <span>Homeowners</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-500 mt-1">Protect your biggest investment</div>
+                    </button>
+                    <button onclick="nextStep()" class="p-4 rounded-2xl border-2 border-slate-200 text-left hover:border-emerald-500 hover:bg-emerald-50/50 transition-all group cursor-pointer">
+                        <div class="font-bold text-slate-900 group-hover:text-emerald-700 flex items-center justify-between">
+                            <span>Life Insurance</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-500 mt-1">Peace of mind for your family</div>
+                    </button>
+                    <button onclick="nextStep()" class="p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-left transition-all cursor-pointer">
+                        <div class="font-bold text-emerald-700 flex items-center justify-between">
+                            <span>Bundle & Save</span>
+                            <span class="px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] uppercase font-bold">Best Value</span>
+                        </div>
+                        <div class="text-xs sm:text-sm text-emerald-600 font-medium mt-1">Maximize your multi-policy discounts</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Details -->
+            <div id="step-2" class="step-content animate-in fade-in">
+                <p class="text-base sm:text-lg font-semibold text-slate-700 mb-6">A few quick details...</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-2">Zip Code</label>
+                        <input type="number" id="zip" placeholder="e.g. 90210" class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none text-slate-900">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-2">Currently Insured?</label>
+                        <select class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none text-slate-900 bg-white">
+                            <option>Yes, looking to save</option>
+                            <option>No, I need new coverage</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center mt-8 pt-4 border-t border-slate-100">
+                    <button onclick="prevStep()" class="text-slate-500 font-bold hover:text-slate-700 cursor-pointer">Back</button>
+                    <button onclick="nextStep()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-emerald-200 transition-all cursor-pointer">Continue &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Contact Info -->
+            <div id="step-3" class="step-content animate-in fade-in">
+                <p class="text-base sm:text-lg font-semibold text-slate-700 mb-6">Where should we send your instant policy comparison?</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <input type="text" id="fname" placeholder="First Name" class="p-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900">
+                    <input type="text" placeholder="Last Name" class="p-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900">
+                    <input type="email" placeholder="Email Address" class="p-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900">
+                    <input type="tel" placeholder="Phone Number" class="p-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900">
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="prevStep()" class="text-slate-500 font-bold hover:text-slate-700 px-4 py-3 cursor-pointer">Back</button>
+                    <button onclick="runFunnelLogic()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-black text-lg sm:text-xl shadow-xl shadow-emerald-200 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                        View My Instant Savings <i data-lucide="zap" fill="currentColor"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="step-loading" class="step-content text-center py-10 animate-in fade-in">
+                <div class="w-20 h-20 border-4 border-emerald-100 border-t-emerald-600 rounded-full animate-spin-custom mx-auto mb-6"></div>
+                <h2 class="text-2xl font-bold text-slate-900 mb-2">Calculating Your Savings...</h2>
+                <p class="text-slate-500">Comparing Progressive, Travelers, and 40+ top carriers.</p>
+            </div>
+
+            <!-- Success State -->
+            <div id="step-success" class="step-content text-center py-6 animate-in zoom-in duration-300">
+                <div class="bg-emerald-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto text-emerald-600 mb-6 shadow-lg shadow-emerald-100">
+                    <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Great news, <span id="userName">Friend</span>!</h2>
+                <p class="text-slate-600 mb-8 text-base sm:text-lg">We found multiple matched policies with instant discounts.</p>
+                <div class="bg-emerald-50 border-2 border-emerald-200 p-6 rounded-3xl max-w-sm mx-auto mb-8 shadow-inner">
+                    <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-1">Estimated Annual Savings</p>
+                    <p class="text-5xl font-black text-slate-900 leading-none">$618.40</p>
+                </div>
+                <p class="text-sm text-slate-500">An advisor from JEHV Insurance will reach out shortly to verify and apply final rate discounts.</p>
+                <div class="mt-6">
+                    <button onclick="resetFunnel()" class="px-6 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors cursor-pointer">
+                        Calculate Another Quote
+                    </button>
+                </div>
+            </div>
+
+            <!-- Trust Badges (Hidden on loading/success) -->
+            <div id="funnel-footer" class="mt-8 pt-8 border-t border-slate-100 flex flex-wrap justify-center gap-4 sm:gap-6 opacity-75 text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500">
+                <div class="flex items-center gap-1.5"><i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600"></i> 256-Bit Encrypted</div>
+                <div class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i> No Spam Guarantee</div>
+                <div class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i> Licensed in 50 States</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. COVERAGE CARDS -->
+    <section class="py-24 max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Comprehensive Coverage for Every Need</h2>
+            <div class="h-1.5 w-20 bg-emerald-500 mx-auto rounded-full"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Auto -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl group hover:-translate-y-2 transition-all">
+                <div class="bg-emerald-50 w-16 h-16 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <i data-lucide="car" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-slate-900">Auto Insurance</h3>
+                <ul class="space-y-3 text-slate-600 mb-8 text-sm">
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Accident Forgiveness</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Roadside Assistance</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Multi-Vehicle Discounts</li>
+                </ul>
+            </div>
+            <!-- Home -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl group hover:-translate-y-2 transition-all">
+                <div class="bg-emerald-50 w-16 h-16 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <i data-lucide="home" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-slate-900">Home & Renters</h3>
+                <ul class="space-y-3 text-slate-600 mb-8 text-sm">
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Property Protection</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Liability Coverage</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Natural Disaster Cover</li>
+                </ul>
+            </div>
+            <!-- Life -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl group hover:-translate-y-2 transition-all">
+                <div class="bg-emerald-50 w-16 h-16 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <i data-lucide="heart" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-slate-900">Life Insurance</h3>
+                <ul class="space-y-3 text-slate-600 mb-8 text-sm">
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Term & Whole Life</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Instant Approval Plans</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i> Cash Value Options</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SOCIAL PROOF -->
+    <section class="py-24 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-6">"Saved $640/year bundling my home and auto!"</h2>
+            <div class="flex justify-center gap-1 text-emerald-500 mb-8">
+                <i data-lucide="star" class="w-5 h-5" fill="currentColor"></i>
+                <i data-lucide="star" class="w-5 h-5" fill="currentColor"></i>
+                <i data-lucide="star" class="w-5 h-5" fill="currentColor"></i>
+                <i data-lucide="star" class="w-5 h-5" fill="currentColor"></i>
+                <i data-lucide="star" class="w-5 h-5" fill="currentColor"></i>
+            </div>
+            <p class="text-slate-400 uppercase tracking-widest text-xs font-bold mb-8">Trusted by thousands with top carriers</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-40 grayscale contrast-125 font-black text-xl md:text-2xl text-slate-800">
+                <span>PROGRESSIVE</span>
+                <span>TRAVELERS</span>
+                <span>NATIONWIDE</span>
+                <span>ALLSTATE</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="bg-emerald-600 p-1.5 rounded-lg text-white">
+                        <i data-lucide="shield" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-xl font-black text-white uppercase tracking-tighter">JEHV INSURANCE</span>
+                </div>
+                <p class="text-sm">Licensed local agents helping you save since 2012. Professional protection you can trust.</p>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4 uppercase text-xs">Coverage</h5>
+                <ul class="text-sm space-y-2">
+                    <li>Auto Insurance</li>
+                    <li>Homeowners</li>
+                    <li>Life Insurance</li>
+                    <li>Business Protection</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4 uppercase text-xs">Company</h5>
+                <ul class="text-sm space-y-2">
+                    <li>Privacy Policy</li>
+                    <li>Terms of Service</li>
+                    <li>State Licenses</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                <div class="flex items-center gap-2 text-white font-bold mb-2">
+                    <i data-lucide="phone" class="w-4 h-4 text-emerald-500"></i> (800) 555-0199
+                </div>
+                <p class="text-xs">Mon-Fri: 8am - 8pm EST</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 text-center text-xs">
+            &copy; 2026 JEHV Insurance Agency. All Rights Reserved. Created by Jose Vitug.
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+
+        let currentStep = 1;
+
+        function scrollToQuote() {
+            const el = document.getElementById('quote-section');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function selectType(type) {
+            ['Auto', 'Home', 'Life'].forEach(t => {
+                const tab = document.getElementById('tab-' + t);
+                if (tab) tab.classList.remove('tab-active');
+            });
+            const selected = document.getElementById('tab-' + type);
+            if (selected) selected.classList.add('tab-active');
+            scrollToQuote();
+        }
+
+        function nextStep() {
+            if (currentStep < 3) {
+                const curr = document.getElementById('step-' + currentStep);
+                if (curr) curr.classList.remove('active');
+                currentStep++;
+                const next = document.getElementById('step-' + currentStep);
+                if (next) next.classList.add('active');
+                updateProgress();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                const curr = document.getElementById('step-' + currentStep);
+                if (curr) curr.classList.remove('active');
+                currentStep--;
+                const prev = document.getElementById('step-' + currentStep);
+                if (prev) prev.classList.add('active');
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            for (let i = 1; i <= 3; i++) {
+                const dot = document.getElementById('dot-' + i);
+                if (dot) {
+                    if (i <= currentStep) {
+                        dot.classList.remove('bg-slate-200');
+                        dot.classList.add('bg-emerald-500');
+                    } else {
+                        dot.classList.remove('bg-emerald-500');
+                        dot.classList.add('bg-slate-200');
+                    }
+                }
+            }
+        }
+
+        function runFunnelLogic() {
+            const fnameInput = document.getElementById('fname');
+            const name = (fnameInput && fnameInput.value.trim()) ? fnameInput.value.trim() : 'Friend';
+            const userEl = document.getElementById('userName');
+            if (userEl) userEl.innerText = name;
+
+            const header = document.getElementById('funnel-header');
+            const footer = document.getElementById('funnel-footer');
+            const step3 = document.getElementById('step-3');
+            const loading = document.getElementById('step-loading');
+            const success = document.getElementById('step-success');
+
+            if (header) header.style.display = 'none';
+            if (footer) footer.style.display = 'none';
+            if (step3) step3.classList.remove('active');
+
+            if (loading) loading.classList.add('active');
+
+            setTimeout(() => {
+                if (loading) loading.classList.remove('active');
+                if (success) success.classList.add('active');
+                if (window.lucide) lucide.createIcons();
+            }, 2200);
+        }
+
+        function resetFunnel() {
+            currentStep = 1;
+            const header = document.getElementById('funnel-header');
+            const footer = document.getElementById('funnel-footer');
+            const success = document.getElementById('step-success');
+            const step1 = document.getElementById('step-1');
+
+            if (success) success.classList.remove('active');
+            if (header) header.style.display = 'flex';
+            if (footer) footer.style.display = 'flex';
+            if (step1) step1.classList.add('active');
+            updateProgress();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            selectType('Auto');
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
