@@ -1023,6 +1023,13 @@
       <a href="#integrations" onclick="toggleMobileMenu()" class="nav-link block w-full text-left py-2 px-3 rounded-lg hover:bg-brand-surface text-slate-300 hover:text-brand-turquoise">API & Webhooks</a>
       <a href="#websites" onclick="toggleMobileMenu()" class="nav-link block w-full text-left py-2 px-3 rounded-lg hover:bg-brand-surface text-slate-300 hover:text-brand-turquoise">Funnels</a>
       <a href="#compliance" onclick="toggleMobileMenu()" class="nav-link block w-full text-left py-2 px-3 rounded-lg hover:bg-brand-surface text-slate-300 hover:text-brand-turquoise">A2P Approvals</a>
+      <a href="https://www.paypal.com/ncp/payment/YP3GBRCW7BNDS" target="_blank" rel="noopener noreferrer" onclick="toggleMobileMenu()" class="block w-full text-left py-2.5 px-3 rounded-lg bg-[#0070BA]/20 border border-[#0070BA]/50 text-[#60BCE7] hover:text-white font-bold flex items-center justify-between">
+        <span class="flex items-center gap-2">
+          <i class="fa-brands fa-paypal text-sm text-[#0070BA]"></i>
+          <span>Client Payment Portal</span>
+        </span>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+      </a>
       <div class="pt-2 sm:hidden">
         <button onclick="openCvModal(); toggleMobileMenu();" class="w-full py-2.5 btn-brand-primary text-xs uppercase tracking-wider flex items-center justify-center gap-2">
           <i class="fa-solid fa-file-arrow-down text-xs"></i>
@@ -2679,6 +2686,56 @@
                 <span class="text-white font-bold">Baguio City, Philippines</span>
               </div>
             </div>
+
+            <!-- Verified PayPal Remittance / Client Payment Card -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#0B172E] to-[#040813] border border-[#0070BA]/50 shadow-[0_0_25px_rgba(0,112,186,0.22)] space-y-3 mt-4 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-[#0070BA]/10 blur-xl pointer-events-none"></div>
+              
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-[#003087]/40 border border-[#0070BA]/60 flex items-center justify-center text-[#60BCE7] flex-shrink-0 shadow-inner">
+                    <i class="fa-brands fa-paypal text-base text-[#0079C1]"></i>
+                  </div>
+                  <div>
+                    <span class="text-[9.5px] font-mono text-[#60BCE7] uppercase font-bold tracking-wider block">Official Gateway</span>
+                    <span class="text-xs sm:text-sm font-bold text-white">Client Payment Portal</span>
+                  </div>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-mono text-[9px] uppercase font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Verified
+                </span>
+              </div>
+
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                Pay retainer invoices, sprint milestones, and technical hours instantly via PayPal's encrypted merchant portal with full buyer protection.
+              </p>
+
+              <div class="flex items-center gap-2 pt-1">
+                <a href="https://www.paypal.com/ncp/payment/YP3GBRCW7BNDS" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#0070BA] via-[#003087] to-[#001C64] hover:from-[#0079C1] hover:to-[#00246B] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(0,112,186,0.35)] transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+                  <i class="fa-brands fa-paypal text-sm text-[#60BCE7]"></i>
+                  <span>Pay with PayPal</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+                <button type="button" onclick="copyPayPalLink(this)" class="p-2.5 rounded-xl bg-brand-surface hover:bg-slate-800 border border-brand-border/80 text-slate-300 hover:text-white text-xs transition cursor-pointer" title="Copy PayPal Payment Link">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+
+              <!-- Accepted Payment Badges -->
+              <div class="flex items-center justify-between pt-1 border-t border-brand-border/40 text-[9.5px] font-mono text-slate-400">
+                <span class="flex items-center gap-1.5">
+                  <i class="fa-solid fa-lock text-[#60BCE7]"></i>
+                  <span>256-Bit SSL Encrypted</span>
+                </span>
+                <span class="flex items-center gap-2 text-slate-300">
+                  <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                  <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                  <i class="fa-brands fa-cc-amex" title="American Express"></i>
+                  <i class="fa-brands fa-cc-discover" title="Discover"></i>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -2687,13 +2744,17 @@
             
             <!-- Tab Switcher -->
             <div class="flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-[#04070D] border border-brand-border mb-4 sm:mb-6">
-              <button onclick="switchContactTab('calendly')" id="tabBtnCalendly" class="tab-btn active flex-1 py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg sm:rounded-xl text-[11px] sm:text-xs uppercase tracking-wider font-bold transition flex items-center justify-center gap-1.5 text-white">
+              <button onclick="switchContactTab('calendly')" id="tabBtnCalendly" class="tab-btn active flex-1 py-2 sm:py-2.5 px-1.5 sm:px-3 rounded-lg sm:rounded-xl text-[10.5px] sm:text-xs uppercase tracking-wider font-bold transition flex items-center justify-center gap-1.5 text-white">
                 <i class="fa-solid fa-calendar-days text-xs sm:text-sm"></i>
                 <span>Discovery Call</span>
               </button>
-              <button onclick="switchContactTab('email')" id="tabBtnEmail" class="tab-btn flex-1 py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg sm:rounded-xl text-[11px] sm:text-xs uppercase tracking-wider font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-white">
+              <button onclick="switchContactTab('email')" id="tabBtnEmail" class="tab-btn flex-1 py-2 sm:py-2.5 px-1.5 sm:px-3 rounded-lg sm:rounded-xl text-[10.5px] sm:text-xs uppercase tracking-wider font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-white">
                 <i class="fa-solid fa-envelope text-xs sm:text-sm"></i>
                 <span>Quick Message</span>
+              </button>
+              <button onclick="switchContactTab('payment')" id="tabBtnPayment" class="tab-btn flex-1 py-2 sm:py-2.5 px-1.5 sm:px-3 rounded-lg sm:rounded-xl text-[10.5px] sm:text-xs uppercase tracking-wider font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-[#60BCE7]">
+                <i class="fa-brands fa-paypal text-xs sm:text-sm text-[#0079C1]"></i>
+                <span>Client Payment</span>
               </button>
             </div>
 
@@ -2724,6 +2785,118 @@
               </form>
             </div>
 
+            <!-- 3. Direct Verified PayPal Payment & Retainer Console -->
+            <div id="tabContentPayment" class="hidden p-3 sm:p-6 space-y-6">
+              
+              <!-- Console Header -->
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-[#04070D] border border-brand-border">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-12 h-12 rounded-2xl bg-[#003087]/30 border border-[#0070BA]/60 flex items-center justify-center text-[#60BCE7] text-2xl flex-shrink-0 shadow-lg">
+                    <i class="fa-brands fa-paypal text-[#0079C1]"></i>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h3 class="text-base sm:text-lg font-bold text-white">Verified Client Payment Gateway</h3>
+                      <span class="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-bold">256-Bit SSL</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Directly remitted to Jose Vitug &bull; Project JEHV Technical Virtual Assistant</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Payment Use Cases Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div class="p-4 rounded-xl bg-brand-surface/70 border border-brand-border space-y-1.5">
+                  <div class="flex items-center gap-2 text-xs font-bold text-white">
+                    <i class="fa-solid fa-clock-rotate-left text-brand-turquoise"></i>
+                    <span>Monthly VA & GHL Retainers</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-relaxed">Dedicated weekly maintenance, pipeline builds, automation auditing, and continuous CRM optimization.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-brand-surface/70 border border-brand-border space-y-1.5">
+                  <div class="flex items-center gap-2 text-xs font-bold text-white">
+                    <i class="fa-solid fa-robot text-brand-mint"></i>
+                    <span>AI Voice & Chatbot Deployments</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-relaxed">Custom Vapi, Bland.ai, Retell, and Chatbase agent prompts, webhook actions, and sub-account integrations.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-brand-surface/70 border border-brand-border space-y-1.5">
+                  <div class="flex items-center gap-2 text-xs font-bold text-white">
+                    <i class="fa-solid fa-diagram-project text-brand-indigo"></i>
+                    <span>Pipeline & Workflow Sprints</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-relaxed">Multi-branch conditional logic, webhook listeners, n8n orchestrations, and speed-to-lead architecture.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-brand-surface/70 border border-brand-border space-y-1.5">
+                  <div class="flex items-center gap-2 text-xs font-bold text-white">
+                    <i class="fa-solid fa-certificate text-brand-biloba"></i>
+                    <span>A2P 10DLC & Snapshot Setup</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-relaxed">Guaranteed Tier 1 & Tier 2 carrier approvals, opt-in compliance, brand registration, and turn-key snapshots.</p>
+                </div>
+              </div>
+
+              <!-- Main Checkout Action Card -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#003087]/30 via-[#0B1528] to-[#001C64]/30 border border-[#0070BA]/60 space-y-4 shadow-xl">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-white">Complete Remittance via PayPal</h4>
+                    <p class="text-xs text-slate-300">You can pay using your PayPal Account balance, Debit Card, or any Credit Card.</p>
+                  </div>
+                  <div class="flex items-center gap-2 text-slate-300 text-lg sm:text-xl">
+                    <i class="fa-brands fa-cc-visa text-slate-200 hover:text-white transition"></i>
+                    <i class="fa-brands fa-cc-mastercard text-slate-200 hover:text-white transition"></i>
+                    <i class="fa-brands fa-cc-amex text-slate-200 hover:text-white transition"></i>
+                    <i class="fa-brands fa-cc-discover text-slate-200 hover:text-white transition"></i>
+                    <i class="fa-brands fa-paypal text-[#0079C1]"></i>
+                  </div>
+                </div>
+
+                <!-- Action Buttons Row -->
+                <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+                  <a 
+                    href="https://www.paypal.com/ncp/payment/YP3GBRCW7BNDS" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#0070BA] via-[#004BB5] to-[#003087] hover:from-[#0079C1] hover:to-[#003EA8] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(0,112,186,0.4)] transition-transform hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                  >
+                    <i class="fa-brands fa-paypal text-base text-[#60BCE7]"></i>
+                    <span>Open PayPal Secure Payment Link</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </a>
+
+                  <button 
+                    type="button" 
+                    onclick="copyPayPalLink(this)" 
+                    class="w-full sm:w-auto py-3.5 px-4 rounded-xl bg-[#080C16] hover:bg-slate-800 border border-brand-border text-slate-200 hover:text-white text-xs font-mono font-bold flex items-center justify-center gap-2 transition cursor-pointer"
+                  >
+                    <i class="fa-regular fa-copy text-brand-turquoise"></i>
+                    <span>Copy Link</span>
+                  </button>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-2 text-[10.5px] text-slate-400 font-mono pt-2 border-t border-brand-border/40">
+                  <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-400"></i> PayPal Buyer Protection Eligible</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-solid fa-receipt text-brand-turquoise"></i> Instant Automated Tax Invoice / Receipt</span>
+                </div>
+              </div>
+
+              <!-- How Payment Works Simple Steps -->
+              <div class="p-4 rounded-xl bg-[#04070D]/80 border border-brand-border/60 space-y-2">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block">How Payment Works:</span>
+                <ol class="text-xs text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+                  <li>Click the button above to launch the verified PayPal checkout window.</li>
+                  <li>Enter the specific project retainer amount or agreed milestone figure.</li>
+                  <li>Log into your PayPal or select <strong class="text-white">"Pay with Debit or Credit Card"</strong> without needing a PayPal account.</li>
+                  <li>A verified confirmation receipt will be automatically dispatched to your email address.</li>
+                </ol>
+              </div>
+
+            </div>
+
           </div>
         </div>
 
@@ -2733,7 +2906,7 @@
 
   <!-- 12. FOOTER -->
   <footer class="py-10 sm:py-12 bg-[#04070D] border-t border-brand-border/60 text-slate-400 text-xs relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 text-center sm:text-left">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-left">
       <div class="flex items-center gap-3">
         <img 
           src="https://lh3.googleusercontent.com/d/1PLfcXAFfO_i9wDdLcqDZGYQPpH0Envmc" 
@@ -2744,7 +2917,18 @@
         />
         <div><span class="text-white font-bold">PROJECT JEHV</span> &bull; <span class="text-brand-turquoise">Jose Vitug &bull; AI & Automation Specialist</span></div>
       </div>
-      <div class="text-slate-500 font-mono text-[10px]">&copy; 2026 Jose Vitug. All rights reserved.</div>
+      
+      <!-- Footer Quick Links & PayPal Remittance Gateway -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-[11px] font-mono">
+        <a href="https://www.paypal.com/ncp/payment/YP3GBRCW7BNDS" target="_blank" rel="noopener noreferrer" class="text-[#60BCE7] hover:text-white flex items-center gap-1.5 transition">
+          <i class="fa-brands fa-paypal text-[#0079C1]"></i>
+          <span>Client Payment Portal</span>
+        </a>
+        <span class="text-slate-600">&bull;</span>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=business@projectjehv.site" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">business@projectjehv.site</a>
+        <span class="text-slate-600">&bull;</span>
+        <span class="text-slate-500">&copy; 2026 Jose Vitug</span>
+      </div>
     </div>
   </footer>
 
@@ -2907,24 +3091,63 @@
     function switchContactTab(tab) {
       const calendlyTab = document.getElementById('tabContentCalendly');
       const emailTab = document.getElementById('tabContentEmail');
+      const paymentTab = document.getElementById('tabContentPayment');
       const btnCalendly = document.getElementById('tabBtnCalendly');
       const btnEmail = document.getElementById('tabBtnEmail');
+      const btnPayment = document.getElementById('tabBtnPayment');
 
-      if (tab === 'calendly') {
-        calendlyTab.classList.remove('hidden');
-        emailTab.classList.add('hidden');
-        btnCalendly.classList.add('active');
-        btnCalendly.classList.remove('text-slate-400');
-        btnEmail.classList.remove('active');
-        btnEmail.classList.add('text-slate-400');
-      } else {
-        calendlyTab.classList.add('hidden');
-        emailTab.classList.remove('hidden');
-        btnEmail.classList.add('active');
-        btnEmail.classList.remove('text-slate-400');
+      // Reset all tabs
+      if (calendlyTab) calendlyTab.classList.add('hidden');
+      if (emailTab) emailTab.classList.add('hidden');
+      if (paymentTab) paymentTab.classList.add('hidden');
+
+      if (btnCalendly) {
         btnCalendly.classList.remove('active');
         btnCalendly.classList.add('text-slate-400');
       }
+      if (btnEmail) {
+        btnEmail.classList.remove('active');
+        btnEmail.classList.add('text-slate-400');
+      }
+      if (btnPayment) {
+        btnPayment.classList.remove('active');
+        btnPayment.classList.add('text-slate-400');
+      }
+
+      if (tab === 'calendly') {
+        if (calendlyTab) calendlyTab.classList.remove('hidden');
+        if (btnCalendly) {
+          btnCalendly.classList.add('active');
+          btnCalendly.classList.remove('text-slate-400');
+        }
+      } else if (tab === 'email') {
+        if (emailTab) emailTab.classList.remove('hidden');
+        if (btnEmail) {
+          btnEmail.classList.add('active');
+          btnEmail.classList.remove('text-slate-400');
+        }
+      } else if (tab === 'payment') {
+        if (paymentTab) paymentTab.classList.remove('hidden');
+        if (btnPayment) {
+          btnPayment.classList.add('active');
+          btnPayment.classList.remove('text-slate-400');
+        }
+      }
+    }
+
+    function copyPayPalLink(btn) {
+      const payUrl = 'https://www.paypal.com/ncp/payment/YP3GBRCW7BNDS';
+      navigator.clipboard.writeText(payUrl).then(() => {
+        if (btn) {
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i> <span class="text-[10px] text-emerald-400 font-bold">Copied!</span>';
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+          }, 2500);
+        }
+      }).catch(() => {
+        window.open(payUrl, '_blank');
+      });
     }
 
     function handleContactSubmit(e) {
