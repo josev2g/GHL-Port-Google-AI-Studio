@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700" style="background:#090d16; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="canvasGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+    <filter id="nodeShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="700" fill="url(#canvasGrad)"/>
+  
+  <!-- Subtle Grid Dots -->
+  <g opacity="0.12">
+    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="#38bdf8"/>
+    </pattern>
+    <rect width="1000" height="700" fill="url(#dotGrid)"/>
+  </g>
+
+  <!-- Canvas Top Bar -->
+  <rect x="0" y="0" width="1000" height="52" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <rect x="20" y="14" width="24" height="24" rx="6" fill="#1e293b"/>
+  <path d="M 28 26 L 36 26 M 32 20 L 32 32" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <text x="56" y="32" fill="#f8fafc" font-size="14" font-weight="700">[HVAC] Inbound Form Triage &amp; Routing</text>
+  <rect x="830" y="13" width="150" height="26" rx="13" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+  <circle cx="846" cy="26" r="4" fill="#10b981"/>
+  <text x="858" y="30" fill="#34d399" font-size="11" font-weight="700" font-family="monospace">ACTIVE WORKFLOW</text>
+
+  <!-- CONNECTOR LINES -->
+  <!-- Line from Trigger to Track Lead -->
+  <path d="M 500 135 L 500 175" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2"/>
+  <!-- Line from Track Lead to Check Urgency -->
+  <path d="M 500 235 L 500 275" stroke="#38bdf8" stroke-width="2"/>
+  
+  <!-- Fork Lines from Check Urgency to Left and Right Branches -->
+  <path d="M 500 335 L 500 365 L 290 365 L 290 395" stroke="#a855f7" stroke-width="2"/>
+  <path d="M 500 335 L 500 365 L 710 365 L 710 395" stroke="#06b6d4" stroke-width="2"/>
+
+  <!-- Left Branch Vertical Line -->
+  <path d="M 290 455 L 290 495" stroke="#ef4444" stroke-width="2"/>
+  
+  <!-- Right Branch to End -->
+  <path d="M 710 455 L 710 500" stroke="#64748b" stroke-width="2"/>
+
+  <!-- NODE 1: Trigger (Form Submitted) -->
+  <g transform="translate(370, 75)" filter="url(#nodeShadow)">
+    <rect width="260" height="60" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#10b981" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#34d399" font-size="18" font-weight="bold" text-anchor="middle">&#128196;</text>
+    <text x="58" y="27" fill="#34d399" font-size="11" font-weight="800" font-family="monospace" letter-spacing="0.5">FORM SUBMITTED</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Intake Form Submitted</text>
+  </g>
+
+  <!-- NODE 2: Track Inbound Lead -->
+  <g transform="translate(370, 175)" filter="url(#nodeShadow)">
+    <rect width="260" height="60" rx="10" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#3b82f6" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#60a5fa" font-size="16" font-weight="bold" text-anchor="middle">$</text>
+    <text x="58" y="27" fill="#60a5fa" font-size="11" font-weight="800" font-family="monospace">PIPELINE OPPORTUNITY</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Track Inbound Lead (GHL)</text>
+  </g>
+
+  <!-- NODE 3: Check Service Urgency (Condition Diamond/Splitter) -->
+  <g transform="translate(370, 275)" filter="url(#nodeShadow)">
+    <rect width="260" height="60" rx="10" fill="#0f172a" stroke="#a855f7" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#a855f7" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#c084fc" font-size="16" font-weight="bold" text-anchor="middle">{ }</text>
+    <text x="58" y="27" fill="#c084fc" font-size="11" font-weight="800" font-family="monospace">IF / ELSE BRANCH</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Check Service Urgency</text>
+  </g>
+
+  <!-- BRANCH 1 (LEFT): Emergency Priority Triage -->
+  <g transform="translate(160, 395)" filter="url(#nodeShadow)">
+    <rect width="260" height="60" rx="10" fill="#1c1917" stroke="#ef4444" stroke-width="1.5"/>
+    <rect x="10" y="10" width="8" height="40" rx="4" fill="#ef4444"/>
+    <text x="28" y="27" fill="#f87171" font-size="10" font-weight="800" font-family="monospace">URGENCY: EMERGENCY</text>
+    <text x="28" y="44" fill="#fef2f2" font-size="12" font-weight="700">Send Emergency Response SMS</text>
+  </g>
+
+  <g transform="translate(160, 495)" filter="url(#nodeShadow)">
+    <rect width="260" height="60" rx="10" fill="#1c1917" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#f59e0b" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#fbbf24" font-size="16" font-weight="bold" text-anchor="middle">&#128276;</text>
+    <text x="58" y="27" fill="#fbbf24" font-size="10" font-weight="800" font-family="monospace">SUB-60s DISPATCH ALERT</text>
+    <text x="58" y="44" fill="#fffbeb" font-size="12" font-weight="700">Alert Emergency Dispatch</text>
+  </g>
+
+  <!-- BRANCH 2 (RIGHT): Routine / Maintenance Quote -->
+  <g transform="translate(580, 395)" filter="url(#nodeShadow)">
+    <rect width="260" height="60" rx="10" fill="#0c1a2e" stroke="#06b6d4" stroke-width="1.5"/>
+    <rect x="10" y="10" width="8" height="40" rx="4" fill="#06b6d4"/>
+    <text x="28" y="27" fill="#38bdf8" font-size="10" font-weight="800" font-family="monospace">URGENCY: ROUTINE / QUOTE</text>
+    <text x="28" y="44" fill="#f0f9ff" font-size="12" font-weight="700">Send Booking Link SMS</text>
+  </g>
+
+  <!-- Right Branch End State -->
+  <g transform="translate(670, 500)">
+    <rect width="80" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="40" y="20" fill="#94a3b8" font-size="11" font-weight="700" text-anchor="middle" font-family="monospace">END</text>
+  </g>
+
+  <!-- Left Branch Terminal Status -->
+  <g transform="translate(250, 580)">
+    <rect width="180" height="34" rx="8" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1"/>
+    <text x="90" y="22" fill="#34d399" font-size="11" font-weight="700" text-anchor="middle" font-family="monospace">&#10003; DISPATCH ENGAGED</text>
+  </g>
+</svg>

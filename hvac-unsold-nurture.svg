@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="1000" height="780" style="background:#090d16; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="nurtureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+    <filter id="nurtureShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="780" fill="url(#nurtureGrad)"/>
+  <g opacity="0.12">
+    <pattern id="dotGridNurture" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="#38bdf8"/>
+    </pattern>
+    <rect width="1000" height="780" fill="url(#dotGridNurture)"/>
+  </g>
+
+  <!-- Top Bar -->
+  <rect x="0" y="0" width="1000" height="52" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="56" y="32" fill="#f8fafc" font-size="14" font-weight="700">[HVAC] Nurture: Unsold Estimate Follow-up</text>
+  <rect x="760" y="13" width="220" height="26" rx="13" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+  <circle cx="776" cy="26" r="4" fill="#3b82f6"/>
+  <text x="788" y="30" fill="#60a5fa" font-size="11" font-weight="700" font-family="monospace">HIGH TICKET CLOSING CADENCE</text>
+
+  <!-- Connectors -->
+  <path d="M 500 135 L 500 175" stroke="#3b82f6" stroke-width="2"/>
+  <path d="M 500 235 L 500 275" stroke="#8b5cf6" stroke-width="2"/>
+  <path d="M 500 335 L 500 375" stroke="#10b981" stroke-width="2"/>
+  <path d="M 500 435 L 500 475" stroke="#8b5cf6" stroke-width="2"/>
+  <path d="M 500 535 L 500 575" stroke="#06b6d4" stroke-width="2"/>
+  <path d="M 500 635 L 500 675" stroke="#8b5cf6" stroke-width="2"/>
+  <path d="M 500 735 L 500 755" stroke="#475569" stroke-width="2"/>
+
+  <!-- NODE 1: Trigger (Pipeline Stage Changed) -->
+  <g transform="translate(340, 75)" filter="url(#nurtureShadow)">
+    <rect width="320" height="60" rx="10" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#3b82f6" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#60a5fa" font-size="16" font-weight="bold" text-anchor="middle">&#128260;</text>
+    <text x="58" y="27" fill="#60a5fa" font-size="11" font-weight="800" font-family="monospace">PIPELINE STAGE CHANGED</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Estimate Delivered / On-Site</text>
+  </g>
+
+  <!-- NODE 2: Wait 2 Hours -->
+  <g transform="translate(370, 175)" filter="url(#nurtureShadow)">
+    <rect width="260" height="60" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#8b5cf6" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#a78bfa" font-size="16" font-weight="bold" text-anchor="middle">&#9201;</text>
+    <text x="58" y="27" fill="#a78bfa" font-size="11" font-weight="800" font-family="monospace">STEP DELAY</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Wait 2 Hours</text>
+  </g>
+
+  <!-- NODE 3: Send Quote Review SMS -->
+  <g transform="translate(350, 275)" filter="url(#nurtureShadow)">
+    <rect width="300" height="60" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#10b981" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#34d399" font-size="16" font-weight="bold" text-anchor="middle">&#128172;</text>
+    <text x="58" y="27" fill="#34d399" font-size="11" font-weight="800" font-family="monospace">RAPID TOUCHPOINT</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Send Quote Review SMS</text>
+  </g>
+
+  <!-- NODE 4: Wait 2 Days -->
+  <g transform="translate(370, 375)" filter="url(#nurtureShadow)">
+    <rect width="260" height="60" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#8b5cf6" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#a78bfa" font-size="16" font-weight="bold" text-anchor="middle">&#9201;</text>
+    <text x="58" y="27" fill="#a78bfa" font-size="11" font-weight="800" font-family="monospace">NURTURE DELAY</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Wait 2 Days</text>
+  </g>
+
+  <!-- NODE 5: Send Efficiency & Rebates Email -->
+  <g transform="translate(340, 475)" filter="url(#nurtureShadow)">
+    <rect width="320" height="60" rx="10" fill="#0f172a" stroke="#06b6d4" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#06b6d4" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#38bdf8" font-size="16" font-weight="bold" text-anchor="middle">&#9993;</text>
+    <text x="58" y="27" fill="#38bdf8" font-size="11" font-weight="800" font-family="monospace">VALUE &amp; FINANCING DRIP</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Send Efficiency &amp; Rebates Email</text>
+  </g>
+
+  <!-- NODE 6: Wait 5 Days -->
+  <g transform="translate(370, 575)" filter="url(#nurtureShadow)">
+    <rect width="260" height="60" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#8b5cf6" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#a78bfa" font-size="16" font-weight="bold" text-anchor="middle">&#9201;</text>
+    <text x="58" y="27" fill="#a78bfa" font-size="11" font-weight="800" font-family="monospace">FINAL CADENCE</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Wait 5 Days</text>
+  </g>
+
+  <!-- NODE 7: Send Follow-up Decision SMS -->
+  <g transform="translate(340, 675)" filter="url(#nurtureShadow)">
+    <rect width="320" height="60" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="12" y="12" width="36" height="36" rx="8" fill="#10b981" fill-opacity="0.2"/>
+    <text x="30" y="35" fill="#34d399" font-size="16" font-weight="bold" text-anchor="middle">&#128172;</text>
+    <text x="58" y="27" fill="#34d399" font-size="11" font-weight="800" font-family="monospace">CONVERSION CLOSE</text>
+    <text x="58" y="44" fill="#f8fafc" font-size="12" font-weight="700">Send Follow-up Decision SMS</text>
+  </g>
+</svg>

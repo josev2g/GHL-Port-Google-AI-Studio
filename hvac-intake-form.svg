@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="1000" height="680" style="background:#0b1120; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#070b14"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0e1726"/>
+      <stop offset="100%" stop-color="#141f36"/>
+    </linearGradient>
+    <linearGradient id="btnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Grid Canvas -->
+  <rect width="1000" height="680" fill="url(#bgGrad)"/>
+  <g opacity="0.05">
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-width="1"/>
+    </pattern>
+    <rect width="1000" height="680" fill="url(#gridPattern)"/>
+  </g>
+
+  <!-- Top App Bar -->
+  <rect x="0" y="0" width="1000" height="52" fill="url(#headerGrad)" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="28" cy="26" r="6" fill="#ef4444" opacity="0.8"/>
+  <circle cx="48" cy="26" r="6" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="68" cy="26" r="6" fill="#10b981" opacity="0.8"/>
+  
+  <text x="100" y="31" fill="#94a3b8" font-size="13" font-weight="600" letter-spacing="0.5">GoHighLevel Form Builder</text>
+  <rect x="270" y="16" width="18" height="18" rx="4" fill="#1e293b"/>
+  <text x="300" y="31" fill="#e2e8f0" font-size="13" font-weight="700">[HVAC] Emergency Service &amp; Quote Intake Form</text>
+  
+  <rect x="850" y="13" width="125" height="26" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+  <circle cx="866" cy="26" r="3" fill="#10b981"/>
+  <text x="878" y="30" fill="#34d399" font-size="11" font-weight="700" font-family="monospace">FORM ACTIVE</text>
+
+  <!-- Centered Form Card Container -->
+  <g transform="translate(180, 75)" filter="url(#cardShadow)">
+    <rect width="640" height="565" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Form Title & Badge -->
+    <text x="40" y="44" fill="#0f172a" font-size="20" font-weight="800">[HVAC] Emergency Service &amp; Quote Intake</text>
+    <text x="40" y="65" fill="#64748b" font-size="12">Rapid response dispatch triage for emergency outages and scheduled system estimates.</text>
+
+    <!-- First Name / Last Name Row -->
+    <text x="40" y="102" fill="#334155" font-size="12" font-weight="700">First Name <tspan fill="#ef4444">*</tspan></text>
+    <rect x="40" y="112" width="265" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="54" y="136" fill="#94a3b8" font-size="13">e.g. John</text>
+
+    <text x="335" y="102" fill="#334155" font-size="12" font-weight="700">Last Name <tspan fill="#ef4444">*</tspan></text>
+    <rect x="335" y="112" width="265" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="349" y="136" fill="#94a3b8" font-size="13">e.g. Miller</text>
+
+    <!-- Phone / Email Row -->
+    <text x="40" y="174" fill="#334155" font-size="12" font-weight="700">Phone Number <tspan fill="#ef4444">*</tspan></text>
+    <rect x="40" y="184" width="265" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="54" y="208" fill="#1e293b" font-size="13" font-weight="500">+1 (555) 382-9104</text>
+
+    <text x="335" y="174" fill="#334155" font-size="12" font-weight="700">Email Address <tspan fill="#ef4444">*</tspan></text>
+    <rect x="335" y="184" width="265" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="349" y="208" fill="#94a3b8" font-size="13">john.miller@example.com</text>
+
+    <!-- Street Address -->
+    <text x="40" y="246" fill="#334155" font-size="12" font-weight="700">Street Address</text>
+    <rect x="40" y="256" width="560" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="54" y="280" fill="#94a3b8" font-size="13">Enter residential or commercial property address</text>
+
+    <!-- City / State / Postal Code Row -->
+    <text x="40" y="318" fill="#334155" font-size="12" font-weight="700">City <tspan fill="#ef4444">*</tspan></text>
+    <rect x="40" y="328" width="175" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="54" y="352" fill="#94a3b8" font-size="13">Dallas</text>
+
+    <text x="230" y="318" fill="#334155" font-size="12" font-weight="700">State <tspan fill="#ef4444">*</tspan></text>
+    <rect x="230" y="328" width="175" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="244" y="352" fill="#94a3b8" font-size="13">TX</text>
+
+    <text x="420" y="318" fill="#334155" font-size="12" font-weight="700">Postal Code <tspan fill="#ef4444">*</tspan></text>
+    <rect x="420" y="328" width="180" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="434" y="352" fill="#94a3b8" font-size="13">75001</text>
+
+    <!-- Service Urgency Dropdown (Key Triage Trigger) -->
+    <text x="40" y="390" fill="#0f172a" font-size="13" font-weight="800">Service Urgency <tspan fill="#ef4444">*</tspan> (Triggers Immediate Branching)</text>
+    <rect x="40" y="400" width="560" height="42" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="58" cy="421" r="5" fill="#ef4444"/>
+    <text x="72" y="425" fill="#1e3a8a" font-size="13" font-weight="700">Emergency - No Heat / No AC (Sub-60s Priority Triage)</text>
+    <path d="M 570 417 L 576 424 L 582 417" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Submit CTA Button -->
+    <g transform="translate(40, 465)">
+      <rect width="560" height="46" rx="10" fill="url(#btnGrad)" stroke="#1d4ed8" stroke-width="1"/>
+      <text x="280" y="28" fill="#ffffff" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="0.5">Dispatch Technician / Request Quote &rarr;</text>
+    </g>
+
+    <!-- Footer Security Notice -->
+    <text x="280" y="535" fill="#94a3b8" font-size="11" text-anchor="middle">
+      Guaranteed Speed-to-Lead Triage &bull; TCPA &amp; A2P 10DLC Compliant &bull; Instant SMS Confirmation
+    </text>
+  </g>
+</svg>

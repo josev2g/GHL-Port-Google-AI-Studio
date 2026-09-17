@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="1000" height="680" style="background:#0b1120; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="calBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#070b14"/>
+    </linearGradient>
+    <filter id="calShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="680" fill="url(#calBg)"/>
+  <g opacity="0.05">
+    <pattern id="calGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-width="1"/>
+    </pattern>
+    <rect width="1000" height="680" fill="url(#calGrid)"/>
+  </g>
+
+  <!-- Top App Bar -->
+  <rect x="0" y="0" width="1000" height="52" fill="#0e1726" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="28" cy="26" r="6" fill="#ef4444" opacity="0.8"/>
+  <circle cx="48" cy="26" r="6" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="68" cy="26" r="6" fill="#10b981" opacity="0.8"/>
+  <text x="100" y="31" fill="#94a3b8" font-size="13" font-weight="600">GoHighLevel Appointment Engine</text>
+  <text x="300" y="31" fill="#e2e8f0" font-size="13" font-weight="700">HVAC Service &amp; Estimate Dispatch Calendar</text>
+  <rect x="830" y="13" width="145" height="26" rx="6" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+  <circle cx="846" cy="26" r="3" fill="#3b82f6"/>
+  <text x="858" y="30" fill="#60a5fa" font-size="11" font-weight="700" font-family="monospace">LIVE CALENDAR</text>
+
+  <!-- Calendar Container Modal -->
+  <g transform="translate(100, 80)" filter="url(#calShadow)">
+    <rect width="800" height="540" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+
+    <!-- Left Info Sidebar (300px) -->
+    <rect width="280" height="540" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="279" y="0" width="1" height="540" fill="#e2e8f0"/>
+
+    <text x="32" y="55" fill="#0f172a" font-size="18" font-weight="800">HVAC Service &amp;</text>
+    <text x="32" y="80" fill="#0f172a" font-size="18" font-weight="800">Estimate Dispatch</text>
+
+    <!-- Duration -->
+    <g transform="translate(32, 110)">
+      <circle cx="10" cy="10" r="10" fill="#eff6ff"/>
+      <path d="M 10 5 L 10 10 L 14 12" stroke="#2563eb" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <text x="30" y="14" fill="#475569" font-size="13" font-weight="600">1 hr on-site diagnostic</text>
+    </g>
+
+    <!-- Date Spec -->
+    <g transform="translate(32, 145)">
+      <circle cx="10" cy="10" r="10" fill="#eff6ff"/>
+      <rect x="5" y="5" width="10" height="10" rx="2" stroke="#2563eb" stroke-width="1.5" fill="none"/>
+      <text x="30" y="14" fill="#475569" font-size="13" font-weight="600">Mon - Sat Availability</text>
+    </g>
+
+    <!-- Description -->
+    <text x="32" y="200" fill="#64748b" font-size="12" font-weight="500">Book an on-site diagnostic visit or</text>
+    <text x="32" y="218" fill="#64748b" font-size="12" font-weight="500">complete HVAC equipment replacement</text>
+    <text x="32" y="236" fill="#64748b" font-size="12" font-weight="500">estimate with a certified technician.</text>
+
+    <!-- Features Pill Group -->
+    <rect x="32" y="270" width="216" height="32" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text x="44" y="290" fill="#047857" font-size="11" font-weight="700">&#10003; Real-Time Technician Routing</text>
+
+    <rect x="32" y="312" width="216" height="32" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="44" y="332" fill="#1d4ed8" font-size="11" font-weight="700">&#10003; Automated SMS Reminders</text>
+
+    <rect x="32" y="354" width="216" height="32" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1"/>
+    <text x="44" y="374" fill="#b45309" font-size="11" font-weight="700">&#10003; 2-Way Rescheduling Link</text>
+
+    <!-- Right Side: Month Picker + Time Slots -->
+    <g transform="translate(305, 0)">
+      <text x="30" y="50" fill="#0f172a" font-size="16" font-weight="800">Select Date &amp; Time</text>
+
+      <!-- Calendar Month Header -->
+      <text x="140" y="95" fill="#1e293b" font-size="14" font-weight="700" text-anchor="middle">September 2026</text>
+      <circle cx="90" cy="90" r="14" fill="#f1f5f9"/>
+      <path d="M 92 86 L 87 90 L 92 94" fill="none" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="190" cy="90" r="14" fill="#eff6ff"/>
+      <path d="M 188 86 L 193 90 L 188 94" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Day Labels -->
+      <text x="30" y="130" fill="#94a3b8" font-size="11" font-weight="600">Sun</text>
+      <text x="65" y="130" fill="#94a3b8" font-size="11" font-weight="600">Mon</text>
+      <text x="102" y="130" fill="#94a3b8" font-size="11" font-weight="600">Tue</text>
+      <text x="140" y="130" fill="#94a3b8" font-size="11" font-weight="600">Wed</text>
+      <text x="178" y="130" fill="#94a3b8" font-size="11" font-weight="600">Thu</text>
+      <text x="215" y="130" fill="#94a3b8" font-size="11" font-weight="600">Fri</text>
+      <text x="250" y="130" fill="#94a3b8" font-size="11" font-weight="600">Sat</text>
+
+      <!-- Calendar Days Grid -->
+      <text x="145" y="170" fill="#64748b" font-size="12">1</text>
+      <text x="183" y="170" fill="#64748b" font-size="12">2</text>
+      <text x="220" y="170" fill="#64748b" font-size="12">3</text>
+      <text x="255" y="170" fill="#64748b" font-size="12">4</text>
+
+      <text x="35" y="210" fill="#cbd5e1" font-size="12">6</text>
+      <text x="70" y="210" fill="#64748b" font-size="12">7</text>
+      <text x="107" y="210" fill="#64748b" font-size="12">8</text>
+      <text x="145" y="210" fill="#64748b" font-size="12">9</text>
+      <text x="183" y="210" fill="#64748b" font-size="12">10</text>
+      <text x="220" y="210" fill="#64748b" font-size="12">11</text>
+      <text x="255" y="210" fill="#cbd5e1" font-size="12">12</text>
+
+      <!-- Active Day Highlight (Wednesday 16) -->
+      <circle cx="148" cy="245" r="16" fill="#2563eb"/>
+      <text x="148" y="250" fill="#ffffff" font-size="12" font-weight="800" text-anchor="middle">16</text>
+
+      <circle cx="185" cy="245" r="14" fill="#eff6ff"/>
+      <text x="185" y="250" fill="#1d4ed8" font-size="12" font-weight="600" text-anchor="middle">17</text>
+
+      <circle cx="222" cy="245" r="14" fill="#eff6ff"/>
+      <text x="222" y="250" fill="#1d4ed8" font-size="12" font-weight="600" text-anchor="middle">18</text>
+
+      <!-- Timezone -->
+      <text x="30" y="320" fill="#64748b" font-size="11" font-weight="600">&#127760; Central Time (US &amp; Canada)</text>
+
+      <!-- Time Slots Column -->
+      <g transform="translate(290, 60)">
+        <rect x="0" y="0" width="180" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="90" y="23" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">08:00 AM</text>
+
+        <rect x="0" y="46" width="180" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="90" y="69" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">09:00 AM</text>
+
+        <rect x="0" y="92" width="180" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="90" y="115" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">10:00 AM</text>
+
+        <rect x="0" y="138" width="180" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="90" y="161" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">11:00 AM</text>
+
+        <rect x="0" y="184" width="180" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="90" y="207" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">12:00 PM</text>
+
+        <rect x="0" y="230" width="180" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="90" y="253" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">01:00 PM</text>
+
+        <rect x="0" y="276" width="180" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="90" y="299" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">02:00 PM</text>
+
+        <rect x="0" y="322" width="180" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="90" y="345" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">03:00 PM</text>
+      </g>
+    </g>
+  </g>
+</svg>

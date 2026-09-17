@@ -59,6 +59,7 @@ KNOWLEDGE BASE — JOSE VITUG & PROJECT JEHV:
    - Seamless data migrations from HubSpot, Keap/Infusionsoft, ActiveCampaign, ClickFunnels, Podio, and legacy databases to GoHighLevel with zero lead leakage and zero downtime.
 
 5. Key Case Studies:
+   - HVAC Dispatch & Revenue Engine: Sub-60s emergency triage, automated unsold quote nurture, 5-star Google review engine, and missed call text back (MCTB) with dynamic urgency routing.
    - Solar & Home Services CRM: Multi-location dispatch, automated appointment confirmations, missed call text back, 340% increase in lead response speed.
    - MedSpa & Aesthetic Clinic Booking Engine: HIPAA-conscious intake, deposit payments via Stripe, automated calendar scheduling, VIP re-activation campaigns.
    - Real Estate Brokerage Pipeline: Multi-tier agent routing, automated MLS webhook alerts, contract deadline reminders.

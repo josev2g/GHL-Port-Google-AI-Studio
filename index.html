@@ -2002,9 +2002,12 @@
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">12 Real Estate Workflows & Systems</h2>
           <p class="text-slate-400 text-xs sm:text-sm mt-1">Click on any image to expand in full resolution or watch the Loom video walkthrough.</p>
         </div>
-        <div class="flex items-center gap-3">
+        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
+          <a href="#hvac-engine" class="text-xs font-mono text-brand-mint hover:text-white bg-brand-surface hover:bg-brand-mint/15 transition-all px-3.5 sm:px-4 py-2 rounded-xl border border-brand-mint/40 shadow-lg flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-wrench text-brand-mint"></i> HVAC Engine &darr;
+          </a>
           <span class="text-xs font-mono text-brand-turquoise bg-brand-surface px-4 py-2 rounded-xl border border-brand-border shadow-lg">
-            <i class="fa-solid fa-video text-brand-biloba mr-1.5"></i> 15 Loom Video Proofs
+            <i class="fa-solid fa-video text-brand-biloba mr-1.5"></i> 16 Loom Video Proofs
           </span>
         </div>
       </div>
@@ -2047,8 +2050,7 @@
                 <h4 class="font-bold text-white text-sm sm:text-base mt-0.5">${wf.title}</h4>
                 <p class="text-xs text-slate-400 mt-1">${wf.desc}</p>
               </div>
-              <div class="pt-3 border-t border-brand-border/60 flex items-center justify-between text-xs font-mono">
-                <button onclick="openLightbox('${driveImg}', 'RE Workflow 0${idx+1}: ${wf.title}')" class="text-slate-300 hover:text-white p-1"><i class="fa-solid fa-image"></i> Zoom</button>
+              <div class="pt-3 border-t border-brand-border/60 flex items-center justify-end text-xs font-mono">
                 <button onclick="openLoomModal('${wf.loom}', 'RE Workflow 0${idx+1}: ${wf.title}')" class="text-brand-turquoise font-bold hover:underline p-1">Watch Loom &rarr;</button>
               </div>
             </div>
@@ -2110,16 +2112,10 @@
                   <span class="text-[10px] font-mono text-brand-turquoise uppercase font-bold tracking-wider">Sequence Phase 01</span>
                   <span class="text-[10px] font-mono bg-brand-surface text-slate-300 px-2 py-0.5 rounded border border-brand-border">Queue Ingestion</span>
                 </div>
-                <h4 class="text-sm sm:text-base font-bold text-white mt-1">Lead Ingestion & Power Dialer Queue</h4>
+                <h4 class="text-sm sm:text-base font-bold text-white mt-1">Lead Ingestion &amp; Power Dialer Queue</h4>
                 <p class="text-xs text-slate-400 mt-1">
                   Automated cold lead intake, SDR user assignment, and instant manual call queueing with systematic lead tags.
                 </p>
-              </div>
-              <div class="pt-3 border-t border-brand-border/60 flex items-center justify-between text-xs font-mono">
-                <button onclick="openLightbox('https://lh3.googleusercontent.com/d/1wzr452OFWSFfOT0T-LTwouncVjnIXX3O', 'GHL Cold Calling Power Dialer: Lead Queue & Call Initiation (Part 1)')" class="text-brand-turquoise font-bold hover:underline flex items-center gap-1 cursor-pointer">
-                  <i class="fa-solid fa-magnifying-glass-plus"></i> Zoom Part 1
-                </button>
-                <span class="text-slate-400 text-[11px] font-sans">Cold Lead Ingestion</span>
               </div>
             </div>
 
@@ -2144,16 +2140,10 @@
                   <span class="text-[10px] font-mono text-brand-mint uppercase font-bold tracking-wider">Sequence Phase 02</span>
                   <span class="text-[10px] font-mono bg-brand-surface text-slate-300 px-2 py-0.5 rounded border border-brand-border">Pipeline Staging</span>
                 </div>
-                <h4 class="text-sm sm:text-base font-bold text-white mt-1">Dial Execution & Live Pipeline Staging</h4>
+                <h4 class="text-sm sm:text-base font-bold text-white mt-1">Dial Execution &amp; Live Pipeline Staging</h4>
                 <p class="text-xs text-slate-400 mt-1">
                   Active manual call execution, automatic Opportunity stage creation in HighLevel pipeline, and real-time SDR tracking.
                 </p>
-              </div>
-              <div class="pt-3 border-t border-brand-border/60 flex items-center justify-between text-xs font-mono">
-                <button onclick="openLightbox('https://lh3.googleusercontent.com/d/1EzvdemE_-tmELlxQ0aYDex3BeXiRG3QZ', 'GHL Cold Calling Power Dialer: Dial Execution & Pipeline Staging (Part 2)')" class="text-brand-mint font-bold hover:underline flex items-center gap-1 cursor-pointer">
-                  <i class="fa-solid fa-magnifying-glass-plus"></i> Zoom Part 2
-                </button>
-                <span class="text-slate-400 text-[11px] font-sans">Pipeline Updates</span>
               </div>
             </div>
 
@@ -2182,12 +2172,6 @@
                 <p class="text-xs text-slate-400 mt-1">
                   Intelligent outcome branching based on call disposition tags—triggering voicemail drops, SMS cadences, or DNC opt-outs.
                 </p>
-              </div>
-              <div class="pt-3 border-t border-brand-border/60 flex items-center justify-between text-xs font-mono">
-                <button onclick="openLightbox('https://lh3.googleusercontent.com/d/1cYH2T628KuHtB4ItBOoE-dKngZg6UR2F', 'GHL Call Disposition Matrix: Multi-Branch Outcome Routing (Part 3)')" class="text-brand-biloba font-bold hover:underline flex items-center gap-1 cursor-pointer">
-                  <i class="fa-solid fa-magnifying-glass-plus"></i> Zoom Part 3
-                </button>
-                <span class="text-slate-400 text-[11px] font-sans">Multi-Branch Routing</span>
               </div>
             </div>
 
@@ -2275,8 +2259,7 @@
               <h4 class="text-base sm:text-lg font-bold text-white mt-0.5">Centralized Payment Tracking Workflow</h4>
               <p class="text-xs text-slate-400 mt-1">Stripe payment reconciliation, invoice triggers, and sub-account financial tags.</p>
             </div>
-            <div class="pt-3 border-t border-brand-border/60 flex items-center justify-between text-xs font-mono">
-              <button onclick="openLightbox('https://lh3.googleusercontent.com/d/1EEtAPcoe98EUWHHCGeLU1DgXXFz0jkyX', 'Centralized Payment Tracking Workflow Diagram')" class="text-slate-300 hover:text-white p-1"><i class="fa-solid fa-image"></i> Zoom</button>
+            <div class="pt-3 border-t border-brand-border/60 flex items-center justify-end text-xs font-mono">
               <button onclick="openLoomModal('5e1144c76adb4bc5801bad862898c7a1', 'Centralized Payment Tracking Workflow')" class="text-brand-turquoise font-bold hover:underline p-1">Watch Loom &rarr;</button>
             </div>
           </div>
@@ -2298,8 +2281,7 @@
               <h4 class="text-base sm:text-lg font-bold text-white mt-0.5">Google Sheets Contact Sync Tracker</h4>
               <p class="text-xs text-slate-400 mt-1">Real-time webhook creation and updating of contacts across external Google Sheets.</p>
             </div>
-            <div class="pt-3 border-t border-brand-border/60 flex items-center justify-between text-xs font-mono">
-              <button onclick="openLightbox('https://lh3.googleusercontent.com/d/1868n-jw32LVjkB-h_hBvKwjDC6cRh3-A', 'Google Sheet Contact Sync Tracker Diagram')" class="text-brand-biloba font-bold hover:underline p-1"><i class="fa-solid fa-image"></i> View Full Diagram</button>
+            <div class="pt-3 border-t border-brand-border/60 flex items-center justify-end text-xs font-mono">
               <span class="text-slate-500 font-mono text-[10px]">Automated GHL Sync</span>
             </div>
           </div>
@@ -2307,6 +2289,320 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- 6B. FEATURED ENTERPRISE CASE STUDY: HVAC DISPATCH & REVENUE ENGINE -->
+  <section id="hvac-engine" class="py-16 sm:py-24 bg-transparent relative z-10 border-t border-brand-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-14 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-brand-mint bg-brand-surface px-3.5 py-1 rounded-full border border-brand-mint/30 mb-3 shadow-sm">
+            <i class="fa-solid fa-wrench text-brand-mint"></i> Enterprise CRM Automation Case Study
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-5xl font-black text-white tracking-tight">HVAC Dispatch &amp; Revenue Engine</h2>
+          <p class="text-slate-400 text-xs sm:text-sm lg:text-base mt-2 max-w-3xl leading-relaxed">
+            Full-lifecycle GoHighLevel operational build for high-volume residential &amp; commercial HVAC contractors. Eliminates lead decay through sub-minute emergency triage, accelerates technician dispatch, automates high-ticket unsold estimate closing cadences, and drives recurring 5-star customer reviews.
+          </p>
+        </div>
+
+        <!-- Badges & Tags -->
+        <div class="flex flex-wrap items-center gap-2 flex-shrink-0">
+          <span class="px-3 py-1.5 rounded-xl bg-brand-surface border border-brand-turquoise/40 text-brand-turquoise font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-bolt-lightning text-xs"></i> Speed-to-Lead
+          </span>
+          <span class="px-3 py-1.5 rounded-xl bg-brand-surface border border-brand-mint/40 text-brand-mint font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-gears text-xs"></i> CRM Automation
+          </span>
+          <span class="px-3 py-1.5 rounded-xl bg-brand-surface border border-brand-biloba/40 text-brand-biloba font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-screwdriver-wrench text-xs"></i> HVAC Operations
+          </span>
+        </div>
+      </div>
+
+      <!-- Hero Walkthrough & System Architecture Card -->
+      <div class="bg-[#050811] rounded-2xl sm:rounded-3xl border border-brand-border/80 p-5 sm:p-7 md:p-8 shadow-2xl relative overflow-hidden mb-10 sm:mb-12">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-turquoise/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-mint/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Loom Video Walkthrough Preview Container (5 cols) -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="relative rounded-2xl overflow-hidden border border-brand-border group cursor-pointer aspect-video bg-slate-900 shadow-2xl" onclick="openLoomModal('6770da1d1cd74d5db9eeb857f6ea662d', 'HVAC Dispatch & Revenue Engine Walkthrough')">
+              <img 
+                src="/hvac-loom-thumb.gif" 
+                alt="HVAC Dispatch & Revenue Engine Video Walkthrough" 
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onerror="this.src='https://cdn.loom.com/sessions/thumbnails/6770da1d1cd74d5db9eeb857f6ea662d-31254ee6721b4f29.gif'"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex flex-col justify-between p-4 pointer-events-none">
+                <div class="flex items-center justify-between">
+                  <span class="px-2.5 py-1 rounded-md bg-red-600/95 text-white font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-md">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> Loom Video Proof
+                  </span>
+                  <span class="px-2 py-0.5 rounded bg-black/70 text-slate-300 font-mono text-[10px] border border-white/10">6 Workflows Covered</span>
+                </div>
+                <div class="text-center pb-2">
+                  <div class="w-14 h-14 mx-auto rounded-full bg-brand-turquoise text-slate-950 flex items-center justify-center text-xl shadow-2xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-play ml-1"></i>
+                  </div>
+                  <span class="text-xs font-bold text-white mt-2 block drop-shadow-md">Click to Play Interactive Walkthrough</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Actions -->
+            <div class="flex items-center justify-between gap-3 text-xs font-mono">
+              <button onclick="openLoomModal('6770da1d1cd74d5db9eeb857f6ea662d', 'HVAC Dispatch & Revenue Engine Walkthrough')" class="text-brand-turquoise font-bold hover:underline flex items-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-expand text-[11px]"></i> Launch Fullscreen Player
+              </button>
+              <a href="https://www.loom.com/share/6770da1d1cd74d5db9eeb857f6ea662d" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white flex items-center gap-1">
+                <span>Direct Loom Link</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Architecture Operational Overview (7 cols) -->
+          <div class="lg:col-span-7 space-y-5">
+            <div>
+              <span class="text-[11px] font-mono text-brand-mint uppercase tracking-wider font-bold">System Architecture Blueprint</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">HighLevel Multi-Stage Operational Pipeline</h3>
+              <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                Engineered to address the 3 major profit leaks in home service businesses: missed incoming phone calls, delayed emergency dispatch triage, and unclosed quotes left without structured multi-touch nurture.
+              </p>
+            </div>
+
+            <!-- 4 Metrics & Highlights Bento -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+              <div class="p-3.5 rounded-xl bg-brand-surface/60 border border-brand-border/80 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center flex-shrink-0 text-red-400 text-sm">
+                  <i class="fa-solid fa-phone-slash"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">&lt; 60s Speed-to-Lead MCTB</h4>
+                  <p class="text-[11px] text-slate-400 mt-0.5">Automated SMS triage rescues unanswered incoming calls before prospects phone competitors.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-brand-surface/60 border border-brand-border/80 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-turquoise/10 border border-brand-turquoise/30 flex items-center justify-center flex-shrink-0 text-brand-turquoise text-sm">
+                  <i class="fa-solid fa-route"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">Dynamic Urgency Routing</h4>
+                  <p class="text-[11px] text-slate-400 mt-0.5">Emergency No-Heat/AC pings on-call techs; routine inquiries get instant calendar booking.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-brand-surface/60 border border-brand-border/80 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center flex-shrink-0 text-purple-400 text-sm">
+                  <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">Unsold Quote Drip Sequence</h4>
+                  <p class="text-[11px] text-slate-400 mt-0.5">2h SMS, 2d energy rebate &amp; efficiency email, and 5d decision close increase quote conversion by 35%.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-brand-surface/60 border border-brand-border/80 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center flex-shrink-0 text-amber-400 text-sm">
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">Automated 5-Star Review Engine</h4>
+                  <p class="text-[11px] text-slate-400 mt-0.5">Triggered 1h post-service upon invoice mark won, scaling Google Business Profile rank hands-free.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 6-Part Workflow Architecture Breakdown Grid -->
+      <div class="mb-6">
+        <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-diagram-project text-brand-turquoise"></i> Complete 6-Part Production System Architecture
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">Click any diagram to zoom in full resolution or inspect node logic.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Pillar 1: Speed-to-Lead Missed Call Text Back -->
+        <div class="brand-card-3d p-5 sm:p-6 flex flex-col justify-between space-y-4 border border-brand-border/80">
+          <div class="img-preview-container aspect-video" onclick="openLightbox('https://lh3.googleusercontent.com/d/1RYeQpUgc0FIKBb7DyuegPsAo8JIAHcUM', 'Speed-to-Lead: Missed Call Text Back Workflow')">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1RYeQpUgc0FIKBb7DyuegPsAo8JIAHcUM" 
+              alt="Speed-to-Lead: Missed Call Text Back Workflow" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              onerror="this.onerror=null; this.src='/hvac-speed-to-lead.png';"
+            />
+            <div class="img-preview-overlay">
+              <span class="px-3 py-1.5 rounded-full bg-brand-turquoise text-brand-canvas text-xs font-bold font-mono">
+                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Expand Screenshot
+              </span>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono text-brand-turquoise uppercase font-bold">Sequence 01</span>
+              <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">&lt; 60s Speed</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-bold text-white mt-1">Speed-to-Lead: Missed Call Text Back</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              Triggers instantly upon inbound missed call (busy, no-answer, canceled). Applies 1-minute buffer delay, auto-creates lead opportunity in pipeline, fires reassuring triage text, and notifies dispatch desk.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Emergency Service & Quote Intake Form -->
+        <div class="brand-card-3d p-5 sm:p-6 flex flex-col justify-between space-y-4 border border-brand-border/80">
+          <div class="img-preview-container aspect-video" onclick="openLightbox('https://lh3.googleusercontent.com/d/1TAaAzEDGLwnHPI8-IlGMsjJ0weu2yv1z', 'Emergency Service & Quote Intake Form')">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1TAaAzEDGLwnHPI8-IlGMsjJ0weu2yv1z" 
+              alt="Emergency Service & Quote Intake Form" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              onerror="this.onerror=null; this.src='/hvac-intake-form.png';"
+            />
+            <div class="img-preview-overlay">
+              <span class="px-3 py-1.5 rounded-full bg-brand-mint text-brand-canvas text-xs font-bold font-mono">
+                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Expand Screenshot
+              </span>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono text-brand-mint uppercase font-bold">Sequence 02</span>
+              <span class="text-[10px] font-mono text-brand-mint bg-brand-mint/10 px-2 py-0.5 rounded border border-brand-mint/30">Intake Portal</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-bold text-white mt-1">Emergency Service &amp; Quote Intake</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              Mobile-responsive intake portal capturing customer details, property address, and service urgency classification dropdown to route emergency heating/cooling outages immediately into rapid dispatch.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Inbound Form Triage & Dynamic Routing -->
+        <div class="brand-card-3d p-5 sm:p-6 flex flex-col justify-between space-y-4 border border-brand-border/80">
+          <div class="img-preview-container aspect-video" onclick="openLightbox('https://lh3.googleusercontent.com/d/1YNeS1RiwYJpxsi0P5lHxV2p3Yz9Rw2RZ', 'Inbound Form Triage & Routing')">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1YNeS1RiwYJpxsi0P5lHxV2p3Yz9Rw2RZ" 
+              alt="Inbound Form Triage & Routing" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              onerror="this.onerror=null; this.src='/hvac-form-triage.png';"
+            />
+            <div class="img-preview-overlay">
+              <span class="px-3 py-1.5 rounded-full bg-brand-biloba text-brand-canvas text-xs font-bold font-mono">
+                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Expand Screenshot
+              </span>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono text-brand-biloba uppercase font-bold">Sequence 03</span>
+              <span class="text-[10px] font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800/60">If / Else Branch</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-bold text-white mt-1">Inbound Form Triage &amp; Routing</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              Automated branch matrix: evaluates service urgency. If Emergency (No Heat/Air), sends instant reassurance SMS and alerts on-call techs; if Routine Maintenance, delivers self-serve booking link.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pillar 4: Service & Estimate Dispatch Calendar -->
+        <div class="brand-card-3d p-5 sm:p-6 flex flex-col justify-between space-y-4 border border-brand-border/80">
+          <div class="img-preview-container aspect-video" onclick="openLightbox('https://lh3.googleusercontent.com/d/1i9erw1YkaZKLd5hFGk1FjHgxGrvus_mK', 'Service & Estimate Dispatch Calendar')">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1i9erw1YkaZKLd5hFGk1FjHgxGrvus_mK" 
+              alt="Service & Estimate Dispatch Calendar" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              onerror="this.onerror=null; this.src='/hvac-calendar-dispatch.png';"
+            />
+            <div class="img-preview-overlay">
+              <span class="px-3 py-1.5 rounded-full bg-blue-500 text-white text-xs font-bold font-mono">
+                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Expand Screenshot
+              </span>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono text-blue-400 uppercase font-bold">Sequence 04</span>
+              <span class="text-[10px] font-mono text-blue-400 bg-blue-950/60 px-2 py-0.5 rounded border border-blue-800/60">GHL Booking</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-bold text-white mt-1">Service &amp; Estimate Dispatch</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              1-hour diagnostic and equipment replacement estimate scheduling engine. Features buffer controls, calendar sync, round-robin technician dispatch, automated pre-visit reminders, and rescheduling links.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pillar 5: Automated Unsold Estimate Follow-up Nurture -->
+        <div class="brand-card-3d p-5 sm:p-6 flex flex-col justify-between space-y-4 border border-brand-border/80">
+          <div class="img-preview-container aspect-video" onclick="openLightbox('https://lh3.googleusercontent.com/d/1FtQLW4XlqjZ_pChrnjrI6aKxLQf0qh_e', 'Nurture: Unsold Estimate Follow-up')">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1FtQLW4XlqjZ_pChrnjrI6aKxLQf0qh_e" 
+              alt="Nurture: Unsold Estimate Follow-up" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              onerror="this.onerror=null; this.src='/hvac-unsold-nurture.png';"
+            />
+            <div class="img-preview-overlay">
+              <span class="px-3 py-1.5 rounded-full bg-brand-turquoise text-brand-canvas text-xs font-bold font-mono">
+                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Expand Screenshot
+              </span>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono text-brand-turquoise uppercase font-bold">Sequence 05</span>
+              <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">Revenue Drip</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-bold text-white mt-1">Nurture: Unsold Estimate Follow-up</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              Recovers high-ticket system replacements: 2h check-in SMS &rarr; 2-day SEER2 energy efficiency savings &amp; utility rebates email &rarr; 5-day installation decision SMS, closing quotes without manual follow-up.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pillar 6: Post-Service Google Review Request -->
+        <div class="brand-card-3d p-5 sm:p-6 flex flex-col justify-between space-y-4 border border-brand-border/80">
+          <div class="img-preview-container aspect-video" onclick="openLightbox('https://lh3.googleusercontent.com/d/1LsFrtf-0QEa_DkKsg0YrtrVFpnQQVa5v', 'Reputation: Post-Service Google Review Request')">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1LsFrtf-0QEa_DkKsg0YrtrVFpnQQVa5v" 
+              alt="Reputation: Post-Service Google Review Request" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              onerror="this.onerror=null; this.src='/hvac-review-engine.png';"
+            />
+            <div class="img-preview-overlay">
+              <span class="px-3 py-1.5 rounded-full bg-amber-500 text-slate-950 text-xs font-bold font-mono">
+                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Expand Screenshot
+              </span>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono text-amber-400 uppercase font-bold">Sequence 06</span>
+              <span class="text-[10px] font-mono text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/60">5-Star Reviews</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-bold text-white mt-1">Reputation: Post-Service Review Request</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              Triggers when job is marked "Job Won / Invoiced" in GHL. Waits 1 hour post-completion to deliver a direct 5-star Google review link while satisfaction is highest, boosting local map pack ranking.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
