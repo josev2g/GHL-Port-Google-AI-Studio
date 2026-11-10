@@ -68,7 +68,7 @@ KNOWLEDGE BASE — JOSE VITUG & PROJECT JEHV:
 6. About Jose Vitug & Contact:
    - Lead Automation Engineer with hands-on expertise building enterprise-grade automations.
    - Services include Full GHL Build-Outs, Voice AI Integration, CRM Migrations, Custom Snapshot Architecture, and Ongoing Systems Retainers.
-   - Visitors can schedule an Architecture Call directly on the website or email josevitug@gmail.com.
+   - Visitors can schedule an Architecture Call directly on the website or email josev2g.va@gmail.com.
 
 VOICE GUIDELINES:
 - Speak directly, clearly, and warmly.
@@ -104,7 +104,7 @@ function generateLocalJehvResponse(message) {
   }
 
   if (query.includes('book') || query.includes('hire') || query.includes('contact') || query.includes('schedule') || query.includes('call') || query.includes('email') || query.includes('price') || query.includes('cost')) {
-    return "You can schedule a 30-Minute Architecture & Systems Discovery Call directly with Jose using the 'Book Architecture Call' button on this site, or email him directly at josevitug@gmail.com. Jose offers project build-outs, custom snapshot development, and ongoing system retainers.";
+    return "You can schedule a 30-Minute Architecture & Systems Discovery Call directly with Jose using the 'Book Architecture Call' button on this site, or email him directly at josev2g.va@gmail.com. Jose offers project build-outs, custom snapshot development, and ongoing system retainers.";
   }
 
   if (query.includes('who is') || query.includes('about') || query.includes('experience') || query.includes('background') || query.includes('jose')) {
