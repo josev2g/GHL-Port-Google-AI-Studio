@@ -35,7 +35,7 @@ function getGenAI() {
 }
 
 const JEHV_SYSTEM_INSTRUCTION = `You are "JEHV Voice AI", the official AI & Automation Voice Consultant for Jose Vitug's portfolio (Project JEHV).
-Jose Vitug is an elite GoHighLevel (GHL) Solutions Architect, AI Voice & Chat Agent Specialist, and Full-Stack Automation Engineer.
+Jose Vitug is a HighLevel Certified Admin (HighLevel University, 98% final exam score), GoHighLevel (GHL) Solutions Architect, AI Voice & Chat Agent Specialist, and Full-Stack Automation Engineer.
 Your tone is professional, confident, friendly, articulate, and natural for spoken interaction. Keep responses concise, helpful, and conversational (typically 2-4 spoken sentences).
 
 KNOWLEDGE BASE — JOSE VITUG & PROJECT JEHV:
@@ -66,7 +66,7 @@ KNOWLEDGE BASE — JOSE VITUG & PROJECT JEHV:
    - E-Commerce & Info-Product Funnel + Affiliate System: Custom LMS membership area in GHL, affiliate commission tracking, post-purchase upsells.
 
 6. About Jose Vitug & Contact:
-   - Lead Automation Engineer with hands-on expertise building enterprise-grade automations.
+   - Official HighLevel Certified Admin (HighLevel University, issued November 26, 2026, 98% final exam score) and Lead Automation Engineer with hands-on expertise building enterprise-grade automations.
    - Services include Full GHL Build-Outs, Voice AI Integration, CRM Migrations, Custom Snapshot Architecture, and Ongoing Systems Retainers.
    - Visitors can schedule an Architecture Call directly on the website or email josev2g.va@gmail.com.
 
@@ -107,11 +107,11 @@ function generateLocalJehvResponse(message) {
     return "You can schedule a 30-Minute Architecture & Systems Discovery Call directly with Jose using the 'Book Architecture Call' button on this site, or email him directly at josev2g.va@gmail.com. Jose offers project build-outs, custom snapshot development, and ongoing system retainers.";
   }
 
-  if (query.includes('who is') || query.includes('about') || query.includes('experience') || query.includes('background') || query.includes('jose')) {
-    return "Jose Vitug is an AI & Automation Specialist, GoHighLevel Architect, and Full-Stack Systems Engineer with deep expertise in enterprise workflow automation, Voice & Chat AI agents, CRM migrations, and scalable business infrastructure.";
+  if (query.includes('who is') || query.includes('about') || query.includes('experience') || query.includes('background') || query.includes('jose') || query.includes('certif')) {
+    return "Jose Vitug is an official HighLevel Certified Admin (HighLevel University, 98% final exam score), AI & Automation Specialist, GoHighLevel Architect, and Full-Stack Systems Engineer with deep expertise in enterprise workflow automation, Voice & Chat AI agents, CRM migrations, and scalable business infrastructure.";
   }
 
-  return "Jose Vitug specializes in GoHighLevel (GHL) system architecture, Voice AI integration (Vapi, Bland, Retell), workflow automation (n8n, Make, Zapier), and zero-loss CRM migrations. Would you like details on custom CRM builds, Voice AI setups, or scheduling an architecture call?";
+  return "Jose Vitug is a HighLevel Certified Admin specializing in GoHighLevel (GHL) system architecture, Voice AI integration (Vapi, Bland, Retell), workflow automation (n8n, Make, Zapier), and zero-loss CRM migrations. Would you like details on custom CRM builds, Voice AI setups, or scheduling an architecture call?";
 }
 
 // Text Chat API Endpoint
@@ -174,7 +174,8 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// Serve static assets from the current directory
+// Serve static assets from public/ (including uploaded PDFs) and root directory
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname));
 
 // Direct all other GET requests to index.html

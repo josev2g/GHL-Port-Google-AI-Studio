@@ -717,12 +717,26 @@
 
     /* Modals */
     html.theme-slate #cvModal > div,
+    html.theme-slate #certModal > div,
+    html.theme-slate #resumePreviewModal > div,
     html.theme-slate #loomModal > div,
     html.theme-slate #lightboxModal > div {
       background-color: #FFFFFF !important;
       border: 1px solid #CBD5E1 !important;
       box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25) !important;
       color: #0F172A !important;
+    }
+
+    html.theme-slate .ghl-cert-badge {
+      background: linear-gradient(135deg, #0B1930 0%, #102546 100%) !important;
+      border-color: rgba(2, 132, 199, 0.55) !important;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18) !important;
+    }
+
+    html.theme-slate .ghl-cert-badge-text {
+      color: #E0F2FE !important;
+      -webkit-text-fill-color: #E0F2FE !important;
+      background: none !important;
     }
 
     html.theme-slate #lightboxModal h4 {
@@ -1071,7 +1085,7 @@
         <div class="lg:col-span-7 space-y-6 sm:space-y-7 text-center lg:text-left">
           <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-brand-surface border border-brand-turquoise/40 shadow-[0_0_20px_rgba(96,188,231,0.25)] max-w-full animate-entrance-1">
             <span class="w-2 h-2 rounded-full bg-brand-mint animate-ping flex-shrink-0"></span>
-            <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-300 font-bold truncate">2+ Years GoHighLevel & AI Specialization</span>
+            <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-300 font-bold truncate">2+ Years GoHighLevel &amp; AI Automation Specialization</span>
           </div>
 
           <!-- Hero Headline -->
@@ -1136,15 +1150,26 @@
                 onclick="openLightbox(this.src, 'Jose Vitug - Profile Portrait')"
                 onerror="this.src='https://drive.google.com/thumbnail?id=1HFB0fmglt3wY7YLuPFBY-iWJ3gL9f0QF&sz=w1000';"
               />
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#080C16] via-[#080C16]/85 to-transparent p-4 sm:p-6 text-left">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="font-bold text-lg sm:text-xl lg:text-2xl text-white">Jose Vitug</h3>
-                    <p class="text-[11px] sm:text-xs lg:text-sm text-brand-turquoise font-mono uppercase tracking-wider font-semibold mt-0.5">Technical Virtual Assistant</p>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#080C16] via-[#080C16]/90 to-transparent p-4 sm:p-6 text-left">
+                <div class="min-w-0">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h3 class="font-bold text-lg sm:text-xl lg:text-2xl text-white leading-tight">Jose Vitug</h3>
+                    <button
+                      type="button"
+                      onclick="openCertModal()"
+                      title="View Official HighLevel Admin Certification"
+                      class="ghl-cert-badge inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#0B162C]/95 hover:bg-[#102546] border border-brand-turquoise/60 hover:border-brand-mint/70 text-[10px] sm:text-[11px] font-mono font-bold tracking-wide shadow-[0_0_16px_rgba(96,188,231,0.3)] hover:shadow-[0_0_20px_rgba(16,232,145,0.4)] transition-all cursor-pointer group/cert"
+                    >
+                      <svg class="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M3 20V10L6.5 6.5L10 10V20H3Z" fill="#EAB308"/>
+                        <path d="M8.5 20V12L12 8.5L15.5 12V20H8.5Z" fill="#3B82F6"/>
+                        <path d="M14 20V6L17.5 2.5L21 6V20H14Z" fill="#22C55E"/>
+                      </svg>
+                      <span class="ghl-cert-badge-text bg-gradient-to-r from-[#60BCE7] via-[#9EE8FF] to-[#10E891] bg-clip-text text-transparent font-extrabold whitespace-nowrap">GHL Certified Admin</span>
+                      <i class="fa-solid fa-certificate text-[10px] text-amber-400 group-hover/cert:scale-110 transition-transform"></i>
+                    </button>
                   </div>
-                  <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-brand-mint/20 text-brand-mint border border-brand-mint/40 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(16,232,145,0.4)]">
-                    <i class="fa-solid fa-check text-xs sm:text-sm"></i>
-                  </div>
+                  <p class="text-[11px] sm:text-xs lg:text-sm text-brand-turquoise font-mono uppercase tracking-wider font-semibold mt-1">GoHighLevel Expert &amp; AI Automation Specialist</p>
                 </div>
               </div>
             </div>
@@ -1178,15 +1203,60 @@
             </div>
 
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
-              "After years of working as a professional chef managing high-pressure kitchen line operations, standardized recipes, and quality control systems, I transitioned into tech and discovered the power of automation. I realized my real passion was systems. Today, I combine culinary discipline and systems engineering to build simple, powerful GoHighLevel and AI automations that help businesses eliminate operational drag, guarantee speed-to-lead, and scale revenue without manual friction."
+              "HighLevel Certified Admin and AI automation specialist who builds the systems behind a business's lead flow: CRM architecture, pipelines, workflows, Voice AI receptionists, compliant SMS and email, and clean API/webhook integrations. Ten-plus years of high-pressure kitchen operations taught me to build repeatable processes that hold up under load—removing manual bottlenecks and handing over documented systems your team can run without me."
             </p>
 
             <div class="pt-3 border-t border-brand-border/60 space-y-2.5 text-xs font-mono text-slate-300">
-              <div class="flex items-center gap-2.5"><i class="fa-solid fa-location-dot text-brand-turquoise w-4 text-center flex-shrink-0"></i><span>Baguio City, Philippines (Remote Worldwide)</span></div>
+              <div class="flex items-center gap-2.5"><i class="fa-solid fa-location-dot text-brand-turquoise w-4 text-center flex-shrink-0"></i><span>Baguio City, Philippines (UTC+8 &bull; Remote Worldwide)</span></div>
               <div class="flex items-center gap-2.5"><i class="fa-solid fa-envelope text-brand-turquoise w-4 text-center flex-shrink-0"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=josev2g.va@gmail.com" target="_blank" class="hover:text-white truncate">josev2g.va@gmail.com</a></div>
               <div class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-brand-turquoise w-4 text-center flex-shrink-0"></i><span>+63 966 718 3001</span></div>
               <div class="flex items-center gap-2.5"><i class="fa-brands fa-linkedin text-brand-turquoise w-4 text-center flex-shrink-0"></i><a href="https://linkedin.com/in/jehv2g" target="_blank" class="hover:text-white">linkedin.com/in/jehv2g</a></div>
-              <div class="flex items-center gap-2.5"><i class="fa-solid fa-globe text-brand-turquoise w-4 text-center flex-shrink-0"></i><a href="https://projectjehv.onrender.com" target="_blank" class="hover:text-white">projectjehv.onrender.com</a></div>
+              <div class="flex items-center gap-2.5"><i class="fa-solid fa-globe text-brand-turquoise w-4 text-center flex-shrink-0"></i><a href="https://projectjehv.site" target="_blank" class="hover:text-white">projectjehv.site</a></div>
+            </div>
+          </div>
+
+          <!-- Official HighLevel Admin Certification Credential Card -->
+          <div class="brand-card-3d p-5 sm:p-6 space-y-4 border-l-4 border-l-brand-mint relative overflow-hidden">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0B1930] to-[#132A52] border border-brand-turquoise/50 flex items-center justify-center flex-shrink-0 shadow-[0_0_16px_rgba(96,188,231,0.2)]">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 20V10L6.5 6.5L10 10V20H3Z" fill="#EAB308"/>
+                    <path d="M8.5 20V12L12 8.5L15.5 12V20H8.5Z" fill="#3B82F6"/>
+                    <path d="M14 20V6L17.5 2.5L21 6V20H14Z" fill="#22C55E"/>
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <div class="flex flex-wrap items-center gap-1.5">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-brand-mint font-bold flex items-center gap-1">
+                      <i class="fa-solid fa-certificate text-amber-400"></i> Verified Certification
+                    </span>
+                    <span class="px-2 py-0.5 rounded bg-brand-turquoise/15 border border-brand-turquoise/35 text-brand-turquoise font-mono text-[10px] font-bold">98% Exam Score</span>
+                  </div>
+                  <h4 class="font-bold text-white text-sm sm:text-base mt-0.5 leading-snug">HighLevel Admin Certification</h4>
+                  <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">HighLevel University &bull; Issued November 26, 2026</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-brand-border/60 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onclick="openCertModal()"
+                class="flex-1 min-w-[140px] py-2 px-3 rounded-lg bg-brand-turquoise/15 hover:bg-brand-turquoise/25 text-brand-turquoise border border-brand-turquoise/40 text-[11px] font-mono font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <i class="fa-solid fa-award text-xs"></i>
+                <span>View Certificate</span>
+              </button>
+              <a
+                href="/assets/aistudio/HighLevel_Admin_Certification_340dd531.pdf"
+                download="HighLevel_Admin_Certification_Jose_Emmanuel_Vitug.pdf"
+                class="py-2 px-3 rounded-lg bg-brand-surface hover:bg-brand-surfaceElevated text-slate-300 hover:text-white border border-brand-border text-[11px] font-mono font-semibold transition-all flex items-center justify-center gap-1.5"
+                title="Download HighLevel Admin Certification PDF"
+              >
+                <i class="fa-solid fa-download text-xs"></i>
+                <span>PDF</span>
+              </a>
             </div>
           </div>
 
@@ -1642,11 +1712,12 @@
             </div>
 
             <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
-              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>CRM & Dedicated Infrastructure:</strong> Architect GoHighLevel ecosystems, custom fields, user permissions, snapshots, and DNS routing (Cloudflare, Mailgun, LC Email).</span></li>
-              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>Multi-Stage Workflows:</strong> Built & deployed 100+ multi-stage pipeline workflows featuring automated lead triage, buyer qualification, and seller valuation sequences.</span></li>
-              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>24/7 Conversational Voice AI:</strong> Engineered autonomous Voice AI receptionists integrated with GHL calendars for real-time patient/lead booking.</span></li>
-              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>20+ Verified A2P Approvals:</strong> Standard and Sole Proprietor brand registrations, compliance vetting, and opt-in workflow setups.</span></li>
-              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>API & Webhook Data Bridges:</strong> Bidirectional synchronization connecting Apollo.io, Zapier, Make.com, n8n, and GHL sub-accounts with zero lead leakage.</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>CRM &amp; Dedicated Infrastructure:</strong> Architect and maintain GoHighLevel ecosystems: custom fields, user permissions, snapshots, and dedicated email/DNS infrastructure (Cloudflare, Mailgun, LC Email).</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>12-Stage Real Estate Pipelines:</strong> Built and deployed 12-stage real estate pipeline workflows with automated lead triage, buyer qualification branching, and seller property valuation sequences.</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>24/7 Conversational Voice AI:</strong> Engineered 24/7 Voice AI receptionists tied to GoHighLevel calendars for real-time patient booking and inquiry handling.</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>100% A2P 10DLC Approval Rate:</strong> Standard and Sole Proprietor carrier registrations, compliance vetting, and opt-in workflow setups across 20+ approvals.</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>API &amp; Webhook Data Bridges:</strong> Bidirectional sync between Apollo.io, Zapier, Make.com, n8n, and GoHighLevel sub-accounts with zero lead leakage.</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-mint text-xs mt-1 flex-shrink-0"></i><span><strong>US Training &amp; Events GHL Operations:</strong> Currently serving as dedicated GoHighLevel specialist for a US-based training and events company—handling payment-to-CRM purchase automation, branded email sending, funnels, webhooks, and SMS compliance.</span></li>
             </ul>
           </div>
 
@@ -3364,32 +3435,129 @@
   </div>
 
 
-  <!-- CV Modal (Configured for Direct Instant PDF Download) -->
+  <!-- CV Modal (Configured for Direct Instant PDF Download & Preview) -->
   <div id="cvModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeCvModal()">
     <div class="bg-brand-surface border border-brand-turquoise/40 rounded-2xl sm:rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl space-y-5 sm:space-y-6" onclick="event.stopPropagation()">
-      <button onclick="closeCvModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 text-slate-400 hover:text-white text-lg p-1 focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
-      <div class="flex items-center gap-3.5 sm:gap-4">
+      <button onclick="closeCvModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 text-slate-400 hover:text-white text-lg p-1 focus:outline-none cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+      <div class="flex items-center gap-3.5 sm:gap-4 pr-6">
         <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-turquoise/20 border border-brand-turquoise/40 flex items-center justify-center text-brand-turquoise text-xl sm:text-2xl flex-shrink-0">
           <i class="fa-solid fa-file-invoice"></i>
         </div>
-        <div>
-          <h3 class="text-lg sm:text-xl font-bold text-white">Jose Vitug</h3>
-          <p class="text-[11px] sm:text-xs text-brand-turquoise font-mono uppercase font-semibold">Technical Virtual Assistant</p>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Jose Emmanuel Vitug</h3>
+            <span class="ghl-cert-badge inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#0B162C] border border-brand-turquoise/50 text-[10px] font-mono font-bold">
+              <svg class="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 20V10L6.5 6.5L10 10V20H3Z" fill="#EAB308"/>
+                <path d="M8.5 20V12L12 8.5L15.5 12V20H8.5Z" fill="#3B82F6"/>
+                <path d="M14 20V6L17.5 2.5L21 6V20H14Z" fill="#22C55E"/>
+              </svg>
+              <span class="ghl-cert-badge-text bg-gradient-to-r from-[#60BCE7] to-[#10E891] bg-clip-text text-transparent font-extrabold">GHL Certified Admin</span>
+            </span>
+          </div>
+          <p class="text-[11px] sm:text-xs text-brand-turquoise font-mono uppercase font-semibold mt-0.5">GoHighLevel Expert &amp; AI Automation Specialist</p>
         </div>
       </div>
       <p class="text-xs text-slate-300 leading-relaxed">
-        Download the official PDF dossier featuring full systems architecture, GHL experience, workflow credentials, and technical platform proficiencies.
+        Download the latest certified PDF resume featuring my HighLevel Admin Certification (HighLevel University, 98% exam score), full systems architecture, GHL experience, and technical platform proficiencies.
       </p>
       <div class="space-y-2.5 sm:space-y-3">
-        <!-- Direct Instant Download Link -->
-        <a href="https://drive.google.com/uc?export=download&id=1mh_jPkik_sDRft2goUJd_zflDA9P03M4" download="Jose_Vitug_Resume_GHL_AI_Specialist.pdf" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 btn-brand-primary text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+        <!-- Direct Instant Download Link (Updated Certified Resume PDF) -->
+        <a href="/assets/aistudio/2026-11-26_Jose_Emmanuel_Vitug_-_Resume__Certified__f8759d1a.pdf" download="Jose_Emmanuel_Vitug_Resume_GHL_Certified_Admin.pdf" class="w-full py-3 sm:py-3.5 btn-brand-primary text-xs uppercase tracking-wider flex items-center justify-center gap-2">
           <i class="fa-solid fa-download"></i>
-          <span>Download Verified Resume PDF</span>
+          <span>Download Certified Resume PDF</span>
         </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <button type="button" onclick="closeCvModal(); openResumePreviewModal();" class="w-full py-2.5 btn-brand-outline text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-eye text-brand-turquoise"></i>
+            <span>Preview Resume</span>
+          </button>
+          <button type="button" onclick="closeCvModal(); openCertModal();" class="w-full py-2.5 btn-brand-outline text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-award text-amber-400"></i>
+            <span>View GHL Certificate</span>
+          </button>
+        </div>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=josev2g.va@gmail.com&su=Jose%20Vitug%20Resume%20Inquiry" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 sm:py-3 btn-brand-outline text-xs uppercase tracking-wider flex items-center justify-center gap-2">
           <i class="fa-solid fa-envelope"></i>
           <span>Contact Directly via Gmail</span>
         </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HighLevel Admin Certification Modal -->
+  <div id="certModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4" onclick="closeCertModal()">
+    <div class="relative max-w-3xl w-full bg-brand-surface border border-brand-turquoise/50 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]" onclick="event.stopPropagation()">
+      <div class="flex flex-wrap items-center justify-between gap-2 bg-[#080C16] p-3 sm:p-4 border-b border-brand-border">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 20V10L6.5 6.5L10 10V20H3Z" fill="#EAB308"/>
+            <path d="M8.5 20V12L12 8.5L15.5 12V20H8.5Z" fill="#3B82F6"/>
+            <path d="M14 20V6L17.5 2.5L21 6V20H14Z" fill="#22C55E"/>
+          </svg>
+          <div class="min-w-0">
+            <h4 class="text-xs sm:text-sm font-bold text-white truncate">HighLevel Admin Certification — Jose Emmanuel Vitug</h4>
+            <p class="text-[10px] sm:text-[11px] font-mono text-brand-turquoise truncate">HighLevel University &bull; Issued Nov 26, 2026 &bull; 98% Final Exam Score</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="/assets/aistudio/HighLevel_Admin_Certification_340dd531.pdf" download="HighLevel_Admin_Certification_Jose_Emmanuel_Vitug.pdf" class="px-2.5 py-1.5 rounded-lg bg-brand-turquoise/15 hover:bg-brand-turquoise/25 border border-brand-turquoise/40 text-brand-turquoise text-[11px] font-mono font-bold flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-download"></i>
+            <span class="hidden sm:inline">Download PDF</span>
+          </a>
+          <button type="button" onclick="closeCertModal(); openLightbox('/assets/aistudio/HighLevel_Admin_Certification_preview.png', 'HighLevel Admin Certification — Jose Emmanuel Vitug');" class="px-2.5 py-1.5 rounded-lg bg-[#0E1A33] hover:bg-slate-800 border border-brand-border text-slate-300 hover:text-white text-[11px] font-mono flex items-center gap-1.5 transition-colors cursor-pointer" title="Zoom & Pan Full Resolution">
+            <i class="fa-solid fa-magnifying-glass-plus text-brand-turquoise"></i>
+            <span class="hidden sm:inline">Zoom</span>
+          </button>
+          <button type="button" onclick="closeCertModal()" class="text-slate-400 hover:text-white text-lg sm:text-xl p-1 focus:outline-none cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+      <div class="relative w-full overflow-y-auto bg-[#050811] p-3 sm:p-5 flex items-center justify-center">
+        <img
+          src="/assets/aistudio/HighLevel_Admin_Certification_preview.png"
+          alt="HighLevel Admin Certification - Jose Emmanuel Vitug"
+          loading="lazy"
+          onclick="closeCertModal(); openLightbox(this.src, 'HighLevel Admin Certification — Jose Emmanuel Vitug');"
+          class="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl border border-brand-border/60 cursor-zoom-in"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Certified Resume Preview Modal -->
+  <div id="resumePreviewModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4" onclick="closeResumePreviewModal()">
+    <div class="relative max-w-4xl w-full bg-brand-surface border border-brand-turquoise/50 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]" onclick="event.stopPropagation()">
+      <div class="flex flex-wrap items-center justify-between gap-2 bg-[#080C16] p-3 sm:p-4 border-b border-brand-border">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <i class="fa-solid fa-file-invoice text-brand-turquoise text-base flex-shrink-0"></i>
+          <div class="min-w-0">
+            <h4 class="text-xs sm:text-sm font-bold text-white truncate">Jose Emmanuel Vitug — Certified Resume (2 Pages)</h4>
+            <p class="text-[10px] sm:text-[11px] font-mono text-brand-turquoise truncate">HighLevel Certified Admin &bull; GoHighLevel Expert &amp; AI Automation Specialist</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="/assets/aistudio/2026-11-26_Jose_Emmanuel_Vitug_-_Resume__Certified__f8759d1a.pdf" download="Jose_Emmanuel_Vitug_Resume_GHL_Certified_Admin.pdf" class="px-2.5 py-1.5 rounded-lg bg-brand-turquoise/15 hover:bg-brand-turquoise/25 border border-brand-turquoise/40 text-brand-turquoise text-[11px] font-mono font-bold flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-download"></i>
+            <span class="hidden sm:inline">Download PDF</span>
+          </a>
+          <button type="button" onclick="closeResumePreviewModal()" class="text-slate-400 hover:text-white text-lg sm:text-xl p-1 focus:outline-none cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+      <div class="relative w-full overflow-y-auto bg-[#050811] p-3 sm:p-6 space-y-4 sm:space-y-6">
+        <img
+          src="/assets/aistudio/Jose_Emmanuel_Vitug_Resume_page_1.png"
+          alt="Jose Emmanuel Vitug Resume - Page 1"
+          loading="lazy"
+          onclick="closeResumePreviewModal(); openLightbox(this.src, 'Jose Emmanuel Vitug Resume — Page 1 of 2');"
+          class="w-full max-w-3xl mx-auto h-auto rounded-lg shadow-2xl border border-brand-border/50 cursor-zoom-in"
+        />
+        <img
+          src="/assets/aistudio/Jose_Emmanuel_Vitug_Resume_page_2.png"
+          alt="Jose Emmanuel Vitug Resume - Page 2"
+          loading="lazy"
+          onclick="closeResumePreviewModal(); openLightbox(this.src, 'Jose Emmanuel Vitug Resume — Page 2 of 2');"
+          class="w-full max-w-3xl mx-auto h-auto rounded-lg shadow-2xl border border-brand-border/50 cursor-zoom-in"
+        />
       </div>
     </div>
   </div>
@@ -4053,6 +4221,38 @@
       }
     }
 
+    function openCertModal() {
+      const modal = document.getElementById('certModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeCertModal() {
+      const modal = document.getElementById('certModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function openResumePreviewModal() {
+      const modal = document.getElementById('resumePreviewModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeResumePreviewModal() {
+      const modal = document.getElementById('resumePreviewModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       if (menu) {
@@ -4066,6 +4266,8 @@
         closeLightbox();
         closeLoomModal();
         closeCvModal();
+        closeCertModal();
+        closeResumePreviewModal();
         closeVoiceAiModal();
       }
     });
